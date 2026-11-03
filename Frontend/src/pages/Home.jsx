@@ -127,14 +127,15 @@ export default function Home({ onOpenEnquiry }) {
               </span>
             </p>
 
-            {/* Direct Actions: 2 balanced side-by-side buttons on mobile, spacious on desktop */}
+            {/* Direct Actions: 2 balanced buttons showing the number clearly */}
             <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2 sm:gap-3 pt-1 sm:pt-2">
               <a
                 href={`tel:${LEAD_CONFIG.phoneDial}`}
                 className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2.5 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white orange-gradient shadow-md hover:opacity-95 transition-all text-center"
               >
                 <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-                <span className="truncate">Call Helpline</span>
+                <span className="sm:hidden">Call: 6398149627</span>
+                <span className="hidden sm:inline">Call Helpline: {LEAD_CONFIG.phoneDisplay}</span>
               </a>
 
               <a
@@ -144,20 +145,24 @@ export default function Home({ onOpenEnquiry }) {
                 className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2.5 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] shadow-md transition-all text-center"
               >
                 <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-                <span className="truncate">WhatsApp</span>
+                <span className="sm:hidden">WhatsApp</span>
+                <span className="hidden sm:inline">Chat on WhatsApp</span>
               </a>
             </div>
 
-            {/* Clean Trust Points */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2 text-[11px] sm:text-xs text-blue-200">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>100% EPFO SOP Guidance</span>
-              </span>
+            {/* Direct Phone Number Pill Badge & Clean Trust Points */}
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-1 sm:pt-2 text-[11px] sm:text-xs text-blue-200">
+              <a
+                href={`tel:${LEAD_CONFIG.phoneDial}`}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-extrabold transition-all"
+              >
+                <PhoneCall className="w-3.5 h-3.5 text-orange-400 shrink-0" />
+                <span>Helpline: +91 63981 49627</span>
+              </a>
               <span className="text-white/30 hidden sm:inline">•</span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Direct Advisor Support</span>
+                <span>100% EPFO SOP Guidance</span>
               </span>
               <span className="text-white/30 hidden sm:inline">•</span>
               <span className="flex items-center gap-1.5">
