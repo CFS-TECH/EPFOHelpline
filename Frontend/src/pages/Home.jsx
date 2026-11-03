@@ -87,262 +87,212 @@ export default function Home({ onOpenEnquiry }) {
   return (
     <div id="home">
       {/* =====================================================================
-          01. HERO SECTION — Premium Homepage Hero with Professional Backdrop
+          01. HERO SECTION — Clean, High-Trust Corporate Hero with Advisor Photo
       ====================================================================== */}
-      <section className="relative text-white py-7 sm:py-11 lg:py-14 overflow-hidden bg-[#02152e]">
-        {/* Professional Background Image with Rich Corporate Overlay */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <img
-            src={PHOTOS.ctaBg}
-            alt="Provident Fund Services Corporate Backdrop"
-            className="w-full h-full object-cover object-center opacity-35 mix-blend-luminosity scale-105"
-          />
-          {/* Multi-layered gradient to ensure deep brand blue and perfect text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#02152e]/95 via-[#002b66]/85 to-[#021838]/92" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#02152e] via-transparent to-[#02152e]/75" />
-          
-          {/* Ambient Lighting Orbs for a Rich, Attractive Modern Feel */}
-          <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/3 -right-20 w-80 h-80 bg-orange-500/20 rounded-full blur-3xl" />
-          
-          {/* Subtle Grid Texture */}
-          <div className="absolute inset-0 bg-hero-grid opacity-25" />
-        </div>
+      <section className="bg-gradient-to-r from-[#021838] via-[#003B87] to-[#012555] text-white py-10 sm:py-14 lg:py-16 relative overflow-hidden">
+        {/* Subtle Ambient Glow & Tech Grid */}
+        <div className="absolute inset-0 bg-hero-grid opacity-15 pointer-events-none" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Hero Text & Direct Buttons (7 cols) */}
-            <div className="lg:col-span-7 space-y-3 sm:space-y-4">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F56E0F] animate-pulse" />
-                <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-orange-300">
+            <div className="lg:col-span-7 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15">
+                <span className="w-2 h-2 rounded-full bg-[#F56E0F]" />
+                <span className="text-xs font-bold tracking-wider uppercase text-orange-300">
                   PROVIDENT FUND &amp; PENSION ASSISTANCE
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight drop-shadow-sm">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
                 Clarity in Every PF Process.{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
-                  Confidence in Every Step.
-                </span>
+                <span className="text-[#F56E0F]">Confidence in Every Step.</span>
               </h1>
 
-              {/* Crisp text on mobile, detailed on desktop */}
-              <p className="text-xs sm:text-sm text-blue-100 leading-relaxed max-w-xl">
-                <span className="sm:hidden">
-                  Instant guidance for PF withdrawal, KYC updates, profile corrections &amp; pension claims.
-                </span>
-                <span className="hidden sm:inline">
-                  Professional assistance for Provident Fund services, employee documentation, PF KYC, profile corrections, and pension requirements. We simplify complex procedures through structured support and accurate guidance.
-                </span>
+              <p className="text-sm sm:text-base text-blue-100 leading-relaxed max-w-xl">
+                Professional assistance for Provident Fund services, employee documentation, PF KYC, profile corrections, and pension requirements. Simplified, process-driven support.
               </p>
 
-              {/* Pillar Tags: Hidden on mobile to avoid messy wrapping, clean on tablet/desktop */}
-              <div className="hidden sm:flex flex-wrap items-center gap-2.5 text-xs font-semibold text-white pt-0.5">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#F56E0F]" />
-                  PF Assistance
-                </span>
-                <span className="text-white/30">|</span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#F56E0F]" />
-                  Employee Support
-                </span>
-                <span className="text-white/30">|</span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#F56E0F]" />
-                  Pension &amp; Claim Guidance
-                </span>
-              </div>
-
-              {/* Attractive Direct Actions on Mobile: 2 Side-by-Side balanced buttons */}
-              <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2 pt-1">
+              {/* Direct Actions: Call Helpline & Chat on WhatsApp */}
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
                 <a
                   href={`tel:${LEAD_CONFIG.phoneDial}`}
-                  className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold text-white orange-gradient shadow-md hover:opacity-95 transition-all text-center"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white orange-gradient shadow-md hover:opacity-95 transition-all w-full sm:w-auto"
                 >
-                  <PhoneCall className="w-3.5 h-3.5 shrink-0" />
-                  <span className="truncate">Call Helpline</span>
+                  <PhoneCall className="w-4 h-4 shrink-0" />
+                  <span>Call Helpline: {LEAD_CONFIG.phoneDisplay}</span>
                 </a>
 
                 <a
-                  href={getWhatsAppUrl({ service: 'Mobile Hero Quick Chat' })}
+                  href={getWhatsAppUrl({ service: 'Home Hero Direct Chat' })}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] shadow-md transition-all text-center"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] shadow-md transition-all w-full sm:w-auto"
                 >
-                  <WhatsAppIcon className="w-3.5 h-3.5 shrink-0" />
-                  <span className="truncate">WhatsApp</span>
+                  <WhatsAppIcon className="w-4 h-4 shrink-0" />
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
-              {/* Trust Social Proof with Client Avatars */}
-              <div className="flex items-center gap-3 pt-2">
-                <div className="flex -space-x-2">
-                  {PHOTOS.heroAvatars.map((url, i) => (
-                    <img
-                      key={i}
-                      src={url}
-                      alt="PF Member"
-                      className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-xs"
-                    />
-                  ))}
-                </div>
-                <div className="text-xs text-blue-100">
-                  <div className="flex items-center gap-1 text-amber-400 font-bold">
-                    <span>★★★★★</span>
-                    <span className="text-white text-xs font-bold">4.9 / 5.0</span>
-                  </div>
-                  <p className="text-[11px] text-blue-200 font-medium">Trusted by 2,500+ PF members across India</p>
-                </div>
+
+              {/* Clean Trust Points */}
+              <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-blue-200">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>100% EPFO SOP Guidance</span>
+                </span>
+                <span className="text-white/30 hidden sm:inline">•</span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Direct Advisor Support</span>
+                </span>
+                <span className="text-white/30 hidden sm:inline">•</span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Mon-Sat 9:30 AM - 6:30 PM</span>
+                </span>
               </div>
             </div>
 
-            {/* Right Column: Clean, Prominent Contact Form with Professional Advisor Photo (5 cols) */}
-            <div className="lg:col-span-5" id="hero-contact-form">
-              <div className="bg-white text-slate-900 rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
-                {/* Professional Advisor Photo Showcase */}
-                <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-900">
-                  <img
-                    src={PHOTOS.heroMain}
-                    alt="PFHelpline Senior Advisory Consultant"
-                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#02152e] via-[#02152e]/40 to-transparent" />
-                  
-                  {/* Floating Trust Badges */}
-                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-md flex items-center gap-1.5 border border-slate-100">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span className="text-[11px] font-bold text-slate-800">100% EPFO SOP Guidance</span>
-                  </div>
-
-                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md flex items-center gap-1 border border-slate-100 text-amber-500 text-[11px] font-extrabold">
-                    <span>★ 4.9/5</span>
-                  </div>
-
-                  {/* Photo Bottom Caption */}
-                  <div className="absolute bottom-3 left-4 right-4 text-white">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-orange-300 block">
-                      Dedicated Advisory Desk
-                    </span>
-                    <p className="text-sm font-extrabold leading-tight">
-                      Connect with Verified PF Specialists
-                    </p>
-                  </div>
+            {/* Right Column: Natural, Spacious Advisor Photo Showcase (5 cols) */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 h-80 sm:h-96 lg:h-[400px]">
+                <img
+                  src={PHOTOS.heroMain}
+                  alt="PFHelpline Senior Advisory Consultant"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#02152e]/90 via-[#02152e]/25 to-transparent pointer-events-none" />
+                
+                {/* Floating SOP Badge */}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 border border-slate-100">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span className="text-xs font-bold text-slate-800">Verified SOP Guidance</span>
                 </div>
 
-                <div className="p-4 sm:p-5">
-                  <div className="mb-3 pb-2.5 border-b border-slate-100">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#F56E0F]">
-                      Free Consultation Desk
-                    </span>
-                    <h2 className="text-base sm:text-lg font-extrabold text-slate-900">
-                      Speak With Our PF Team
-                    </h2>
-                    <p className="text-[11px] text-slate-500 mt-0.5">
-                      Fill in your details for instant WhatsApp solution &amp; callback.
-                    </p>
-                  </div>
-
-                {heroSubmitted ? (
-                  <div className="py-6 text-center space-y-3">
-                    <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
-                    <h3 className="text-lg font-bold text-slate-900">
-                      Enquiry Sent to WhatsApp!
-                    </h3>
-                    <p className="text-xs text-slate-600">
-                      Thank you, <strong>{heroForm.name}</strong>. Your enquiry for <strong>{heroForm.service}</strong> has been forwarded to WhatsApp. Please tap <strong>Send</strong> in WhatsApp to deliver it.
-                    </p>
-                    <button
-                      type="button"
-                      onClick={handleHeroWhatsApp}
-                      className="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-sm"
-                    >
-                      <WhatsAppIcon className="w-4 h-4" />
-                      <span>Click If WhatsApp Didn't Open</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setHeroSubmitted(false)}
-                      className="text-xs text-slate-500 underline cursor-pointer"
-                    >
-                      Submit another enquiry
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleHeroSubmit} className="space-y-3.5">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">
-                        Full Name *
-                      </label>
-                      <div className="relative">
-                        <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
-                        <input
-                          type="text"
-                          required
-                          placeholder="Enter your name"
-                          value={heroForm.name}
-                          onChange={(e) => setHeroForm({ ...heroForm, name: e.target.value })}
-                          className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">
-                        Mobile Number *
-                      </label>
-                      <div className="relative">
-                        <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
-                        <input
-                          type="tel"
-                          required
-                          placeholder="Enter 10-digit mobile number"
-                          value={heroForm.phone}
-                          onChange={(e) => setHeroForm({ ...heroForm, phone: e.target.value })}
-                          className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">
-                        Select Your PF Requirement *
-                      </label>
-                      <div className="relative">
-                        <FileText className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
-                        <select
-                          value={heroForm.service}
-                          onChange={(e) => setHeroForm({ ...heroForm, service: e.target.value })}
-                          className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none bg-white font-semibold text-[#003B87]"
-                        >
-                          {SERVICE_CATEGORIES.map((cat) => (
-                            <optgroup key={cat.id} label={cat.title}>
-                              {cat.services.map((s) => (
-                                <option key={s.id} value={s.title}>
-                                  {s.title}
-                                </option>
-                              ))}
-                            </optgroup>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className="pt-1">
-                      <button
-                        type="submit"
-                        className="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-md"
-                      >
-                        <WhatsAppIcon className="w-5 h-5" />
-                        <span>Send Enquiry via WhatsApp</span>
-                      </button>
-                    </div>
-                  </form>
-                )}
+                {/* Bottom Caption */}
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#F56E0F] text-white text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                    Senior Advisory Desk
+                  </span>
+                  <p className="text-base sm:text-lg font-extrabold leading-snug">
+                    Dedicated Support for All PF Requirements
+                  </p>
+                  <p className="text-xs text-blue-200 mt-0.5">
+                    Professional • Transparent • Process-Driven
+                  </p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          01.5 QUICK CONSULTATION BAR — Clean, Uncluttered & High-Converting
+      ====================================================================== */}
+      <section id="hero-contact-form" className="bg-white border-b border-slate-200/90 py-6 sm:py-8 shadow-xs relative z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {heroSubmitted ? (
+            <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-center space-y-3 max-w-2xl mx-auto">
+              <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
+              <h3 className="text-lg font-bold text-slate-900">
+                Enquiry Ready for WhatsApp!
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600">
+                Thank you, <strong>{heroForm.name}</strong>. Your enquiry for <strong>{heroForm.service}</strong> has been prepared. Please click below to send it directly on WhatsApp.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+                <button
+                  type="button"
+                  onClick={handleHeroWhatsApp}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs font-bold shadow-sm cursor-pointer"
+                >
+                  <WhatsAppIcon className="w-4 h-4" />
+                  <span>Click to Open WhatsApp</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setHeroSubmitted(false)}
+                  className="text-xs text-slate-500 underline cursor-pointer"
+                >
+                  Submit another enquiry
+                </button>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={handleHeroSubmit} className="space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#F56E0F]">
+                    Free Consultation Desk
+                  </span>
+                  <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
+                    Need PF Guidance? Request an Instant WhatsApp Callback
+                  </h2>
+                </div>
+                <p className="text-xs text-slate-500">
+                  Quick response from our PF advisors
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div className="relative">
+                  <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <input
+                    type="text"
+                    required
+                    placeholder="Full Name *"
+                    value={heroForm.name}
+                    onChange={(e) => setHeroForm({ ...heroForm, name: e.target.value })}
+                    className="w-full pl-10 pr-3.5 py-3 text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none bg-slate-50 focus:bg-white"
+                  />
+                </div>
+
+                <div className="relative">
+                  <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <input
+                    type="tel"
+                    required
+                    placeholder="Mobile Number *"
+                    value={heroForm.phone}
+                    onChange={(e) => setHeroForm({ ...heroForm, phone: e.target.value })}
+                    className="w-full pl-10 pr-3.5 py-3 text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none bg-slate-50 focus:bg-white"
+                  />
+                </div>
+
+                <div className="relative">
+                  <FileText className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <select
+                    value={heroForm.service}
+                    onChange={(e) => setHeroForm({ ...heroForm, service: e.target.value })}
+                    className="w-full pl-10 pr-3.5 py-3 text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none bg-slate-50 focus:bg-white font-medium text-slate-800"
+                  >
+                    {SERVICE_CATEGORIES.map((cat) => (
+                      <optgroup key={cat.id} label={cat.title}>
+                        {cat.services.map((s) => (
+                          <option key={s.id} value={s.title}>
+                            {s.title}
+                          </option>
+                        ))}
+                      </optgroup>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full h-full min-h-[46px] py-3 px-4 rounded-xl text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm hover:shadow-md"
+                  >
+                    <WhatsAppIcon className="w-4 h-4" />
+                    <span>Get Solution on WhatsApp</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          )}
         </div>
       </section>
 
