@@ -12,8 +12,7 @@ import {
   Sparkles,
   ShieldCheck,
   Check,
-  Clock,
-  MessageSquare
+  Clock
 } from 'lucide-react';
 import {
   SERVICE_CATEGORIES,
@@ -54,15 +53,6 @@ export default function Services({ onOpenEnquiry }) {
     });
     openWhatsApp(url);
   };
-
-  const popularSearches = [
-    'PF Withdrawal',
-    'PF Transfer',
-    'KYC Update',
-    'Name Correction',
-    'UAN Activation',
-    'EPS Pension'
-  ];
 
   // Helper for Group Tag Color
   const getGroupBadgeClass = (group) => {
@@ -105,97 +95,94 @@ export default function Services({ onOpenEnquiry }) {
   return (
     <div className="bg-slate-50 min-h-screen">
       {/* =====================================================================
-          01. HIGH-IMPACT HERO HEADER
+          01. COMPACT, SLEEK & PROFESSIONAL SERVICES HEADER
       ====================================================================== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#021838] via-[#003B87] to-[#042654] text-white py-14 sm:py-18 lg:py-20 border-b border-blue-900/40">
-        {/* Subtle Decorative Elements */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="bg-gradient-to-r from-[#021b3d] via-[#003B87] to-[#012555] text-white py-7 sm:py-9 border-b border-blue-900/40 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+            {/* Left Info Column */}
+            <div className="space-y-2.5 max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-orange-300 text-[11px] font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+                <span>Provident Fund &amp; Pension Services Directory</span>
+              </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center space-y-5">
-          {/* Top Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-orange-300 text-xs font-extrabold tracking-wider uppercase shadow-inner">
-            <Sparkles className="w-3.5 h-3.5 text-orange-400" />
-            <span>Complete 30+ Provident Fund &amp; Pension Services Directory</span>
-          </div>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                PF &amp; Pension Assistance Services
+              </h1>
 
-          {/* Main Title */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-            Find the Right{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
-              PF Solution
-            </span>{' '}
-            in Minutes.
-          </h1>
+              <p className="text-xs sm:text-sm text-blue-100 leading-relaxed max-w-xl">
+                Browse complete procedural guidance, document requirements, and connect directly on WhatsApp or Call for expert assistance.
+              </p>
 
-          {/* Subtitle */}
-          <p className="text-sm sm:text-base lg:text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
-            Step-by-step guidance, required document checklists, and instant 1-on-1 WhatsApp assistance for all employee PF, KYC updates, profile corrections, and pension requirements.
-          </p>
+              {/* Inline Trust Badges */}
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pt-1 text-xs text-blue-200">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  30 Specialized Services
+                </span>
+                <span className="text-white/20">•</span>
+                <span className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-orange-400 shrink-0" />
+                  EPFO SOP Guidance
+                </span>
+                <span className="text-white/20">•</span>
+                <span className="flex items-center gap-1.5">
+                  <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  Instant WhatsApp Support
+                </span>
+              </div>
+            </div>
 
-          {/* High-Impact Interactive Search Bar */}
-          <div className="max-w-2xl mx-auto pt-3">
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-400 to-[#003B87] rounded-2xl blur-xs opacity-30 group-hover:opacity-75 transition duration-300" />
-              <div className="relative bg-white rounded-2xl shadow-xl flex items-center p-1.5">
-                <Search className="w-5 h-5 text-slate-400 ml-3.5 shrink-0" />
+            {/* Right Search & Quick Filter Box */}
+            <div className="lg:w-96 shrink-0 bg-white/10 backdrop-blur-md border border-white/15 p-3.5 sm:p-4 rounded-2xl shadow-md space-y-2.5">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-orange-200">
+                  Quick Service Search
+                </span>
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="text-[11px] text-blue-200 hover:text-white underline cursor-pointer"
+                  >
+                    Reset
+                  </button>
+                )}
+              </div>
+
+              <div className="relative bg-white rounded-xl shadow-xs flex items-center">
+                <Search className="w-4 h-4 text-slate-400 ml-3 shrink-0" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search any service (e.g., Withdrawal, Transfer, Name Correction, UAN)..."
-                  className="w-full pl-3 pr-10 py-3 text-slate-900 text-sm sm:text-base font-semibold outline-none placeholder:text-slate-400 rounded-xl"
+                  placeholder="Search withdrawal, KYC, transfer..."
+                  className="w-full pl-2.5 pr-8 py-2 text-xs sm:text-sm text-slate-900 font-semibold outline-none rounded-xl placeholder:text-slate-400"
                 />
-                {searchQuery ? (
+                {searchQuery && (
                   <button
                     type="button"
                     onClick={() => setSearchQuery('')}
-                    className="p-2 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer mr-1"
-                    title="Clear search"
+                    className="p-1.5 text-slate-400 hover:text-slate-600 mr-1 cursor-pointer"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="w-3.5 h-3.5" />
                   </button>
-                ) : (
-                  <span className="hidden sm:inline-block px-2.5 py-1 text-[11px] font-bold text-slate-400 bg-slate-100 rounded-lg mr-2 shrink-0">
-                    Press to search
-                  </span>
                 )}
               </div>
-            </div>
 
-            {/* Popular Search Suggestions */}
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-3 text-xs">
-              <span className="text-blue-200 font-semibold">Popular Searches:</span>
-              {popularSearches.map((term) => (
-                <button
-                  key={term}
-                  type="button"
-                  onClick={() => setSearchQuery(term)}
-                  className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-orange-200 hover:text-white border border-white/15 transition-all cursor-pointer font-medium"
-                >
-                  {term}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Trust Highlights Bar */}
-          <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto border-t border-white/15">
-            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-blue-100 font-semibold">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>30 Specialized Services</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-blue-100 font-semibold">
-              <ShieldCheck className="w-4 h-4 text-orange-400 shrink-0" />
-              <span>EPFO SOP Guidance</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-blue-100 font-semibold">
-              <WhatsAppIcon className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>Instant WhatsApp Help</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-blue-100 font-semibold">
-              <PhoneCall className="w-4 h-4 text-orange-400 shrink-0" />
-              <span>Direct Call Support</span>
+              {/* Quick Filter Tags */}
+              <div className="flex flex-wrap gap-1.5 pt-0.5">
+                {['Withdrawal', 'KYC', 'Transfer', 'Name Error', 'Pension'].map((tag) => (
+                  <button
+                    key={tag}
+                    type="button"
+                    onClick={() => setSearchQuery(tag === 'Name Error' ? 'Name' : tag)}
+                    className="px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/25 text-[11px] font-semibold text-blue-100 hover:text-white transition-colors cursor-pointer"
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -204,23 +191,23 @@ export default function Services({ onOpenEnquiry }) {
       {/* =====================================================================
           02. CATEGORY TABS & MAIN CONTENT GRID
       ====================================================================== */}
-      <section className="py-12 lg:py-16">
+      <section className="py-8 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Segmented Category Filter Bar */}
-          <div className="mb-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+          <div className="mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
               <div>
-                <h2 className="text-2xl font-black text-slate-900 tracking-tight">
-                  Explore Specialized Services
+                <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+                  Browse All Services
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                  Filter by category or click on any service card for complete checklist and instant solution.
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Filter by category or click on any service card for document checklist and instant guidance.
                 </p>
               </div>
 
-              {/* Reset Search Indicator if active */}
+              {/* Search result count */}
               {searchQuery && (
-                <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-xl text-xs font-bold text-amber-800">
+                <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 px-3 py-1 rounded-lg text-xs font-bold text-amber-800">
                   <span>Found {totalMatchingServices} results for &ldquo;{searchQuery}&rdquo;</span>
                   <button
                     onClick={() => setSearchQuery('')}
@@ -233,12 +220,12 @@ export default function Services({ onOpenEnquiry }) {
             </div>
 
             {/* Category Filter Pills */}
-            <div className="flex flex-wrap items-center gap-2 pt-4">
+            <div className="flex flex-wrap items-center gap-2 pt-3">
               <button
                 onClick={() => setActiveCategory('all')}
-                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
                   activeCategory === 'all'
-                    ? 'bg-[#003B87] text-white shadow-md'
+                    ? 'bg-[#003B87] text-white shadow-sm'
                     : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 shadow-xs'
                 }`}
               >
@@ -260,9 +247,9 @@ export default function Services({ onOpenEnquiry }) {
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                    className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
                       isActive
-                        ? 'bg-[#003B87] text-white shadow-md'
+                        ? 'bg-[#003B87] text-white shadow-sm'
                         : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 shadow-xs'
                     }`}
                   >
@@ -283,30 +270,30 @@ export default function Services({ onOpenEnquiry }) {
           </div>
 
           {/* Main 2-Column Layout: Left 8 Cols (Cards) + Right 4 Cols (Sticky Helpdesk) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             {/* Left 8 Cols: Categorized Services Cards */}
-            <div className="lg:col-span-8 space-y-12">
+            <div className="lg:col-span-8 space-y-8">
               {totalMatchingServices === 0 ? (
-                <div className="bg-white rounded-3xl p-10 text-center border border-slate-200 shadow-sm space-y-4">
-                  <div className="w-14 h-14 bg-orange-100 text-[#F56E0F] rounded-2xl flex items-center justify-center mx-auto">
-                    <Search className="w-7 h-7" />
+                <div className="bg-white rounded-2xl p-8 text-center border border-slate-200 shadow-sm space-y-3">
+                  <div className="w-12 h-12 bg-orange-100 text-[#F56E0F] rounded-xl flex items-center justify-center mx-auto">
+                    <Search className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">
+                  <h3 className="text-lg font-bold text-slate-900">
                     No services matching &ldquo;{searchQuery}&rdquo;
                   </h3>
-                  <p className="text-sm text-slate-600 max-w-md mx-auto">
-                    We could not find any specific service matching your search term. You can still consult with our PF team directly on WhatsApp or Call.
+                  <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
+                    We could not find any specific service matching your search term. You can still consult with our PF team directly on WhatsApp.
                   </p>
-                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                  <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
                     <button
                       onClick={() => setSearchQuery('')}
-                      className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer"
+                      className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer"
                     >
                       View All 30 Services
                     </button>
                     <button
                       onClick={() => onOpenEnquiry && onOpenEnquiry(searchQuery || 'General PF Consultation')}
-                      className="px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs font-bold flex items-center gap-2 cursor-pointer shadow-sm"
+                      className="px-4 py-2 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-sm"
                     >
                       <WhatsAppIcon className="w-4 h-4" />
                       <span>Ask About This on WhatsApp</span>
@@ -316,75 +303,72 @@ export default function Services({ onOpenEnquiry }) {
               ) : (
                 filteredCategories.map((cat) =>
                   cat.services.length === 0 ? null : (
-                    <div key={cat.id} id={cat.id} className="space-y-5 scroll-mt-28">
+                    <div key={cat.id} id={cat.id} className="space-y-4 scroll-mt-24">
                       {/* Category Header Banner with Clean Accent */}
-                      <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                         <div>
                           <div className="flex items-center gap-2">
                             <span className="px-2 py-0.5 rounded-md bg-[#003B87] text-white text-[10px] font-black uppercase tracking-wider">
                               Cat {cat.number}
                             </span>
-                            <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
+                            <h2 className="text-base sm:text-lg font-extrabold text-slate-900">
                               {cat.title}
                             </h2>
                           </div>
-                          <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl">
+                          <p className="text-xs text-slate-500 mt-0.5 max-w-xl">
                             {cat.subtitle}
                           </p>
                         </div>
 
-                        <span className="px-3 py-1 rounded-full bg-blue-50 text-[#003B87] font-extrabold text-xs shrink-0 self-start sm:self-auto border border-blue-100">
+                        <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-[#003B87] font-bold text-xs shrink-0 self-start sm:self-auto border border-blue-100">
                           {cat.services.length} Solutions
                         </span>
                       </div>
 
                       {/* Responsive Grid of Cards */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                         {cat.services.map((service) => (
                           <div
                             key={service.id}
                             id={service.id}
-                            className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-xs hover:border-[#003B87]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden"
+                            className="bg-white rounded-xl p-4 sm:p-5 border border-slate-200 hover:border-[#003B87]/50 hover:shadow-md transition-all duration-200 flex flex-col justify-between group relative overflow-hidden"
                           >
-                            {/* Subtle Top Gradient Line on Hover */}
-                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#003B87] to-[#F56E0F] opacity-0 group-hover:opacity-100 transition-opacity" />
-
                             <div>
-                              {/* Header: Group Tag & Animated Icon */}
-                              <div className="flex items-center justify-between gap-2 mb-3">
+                              {/* Header: Group Tag & Icon */}
+                              <div className="flex items-center justify-between gap-2 mb-2.5">
                                 <span
-                                  className={`px-2.5 py-0.5 rounded-md text-[11px] font-bold border ${getGroupBadgeClass(
+                                  className={`px-2 py-0.5 rounded-md text-[10px] font-bold border ${getGroupBadgeClass(
                                     service.group
                                   )}`}
                                 >
                                   {service.group}
                                 </span>
-                                <div className="w-10 h-10 rounded-xl bg-blue-50 group-hover:bg-[#003B87] text-[#003B87] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-xs shrink-0">
-                                  <ServiceIcon name={service.iconName} className="w-5 h-5" />
+                                <div className="w-8 h-8 rounded-lg bg-blue-50 group-hover:bg-[#003B87] text-[#003B87] group-hover:text-white flex items-center justify-center transition-colors shadow-xs shrink-0">
+                                  <ServiceIcon name={service.iconName} className="w-4 h-4" />
                                 </div>
                               </div>
 
                               {/* Service Title */}
-                              <h3 className="text-base sm:text-lg font-black text-slate-900 mb-2 group-hover:text-[#003B87] transition-colors leading-snug">
+                              <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-1.5 group-hover:text-[#003B87] transition-colors leading-snug">
                                 <Link to={`/services/${service.id}`} className="hover:underline">
                                   {service.title}
                                 </Link>
                               </h3>
 
                               {/* Service Description */}
-                              <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                              <p className="text-xs text-slate-600 leading-relaxed mb-3 line-clamp-2">
                                 {service.desc}
                               </p>
 
                               {/* Key Highlights from WhatWeDo */}
                               {service.WhatWeDo && service.WhatWeDo.length > 0 && (
-                                <div className="space-y-1.5 pb-4 mb-2 border-b border-slate-100">
+                                <div className="space-y-1 pb-3 mb-2 border-b border-slate-100">
                                   {service.WhatWeDo.slice(0, 2).map((item, idx) => (
                                     <div
                                       key={idx}
-                                      className="flex items-start gap-2 text-[11px] text-slate-700 leading-tight"
+                                      className="flex items-start gap-1.5 text-[11px] text-slate-700 leading-tight"
                                     >
-                                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                                      <Check className="w-3 h-3 text-emerald-600 shrink-0 mt-0.5" />
                                       <span className="line-clamp-1">{item}</span>
                                     </div>
                                   ))}
@@ -393,13 +377,13 @@ export default function Services({ onOpenEnquiry }) {
                             </div>
 
                             {/* Card Footer Actions */}
-                            <div className="flex items-center gap-2 pt-2">
+                            <div className="flex items-center gap-2 pt-1">
                               <Link
                                 to={`/services/${service.id}`}
-                                className="flex-1 py-2.5 px-3 rounded-xl bg-blue-50 hover:bg-[#003B87] text-[#003B87] hover:text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-xs"
+                                className="flex-1 py-2 px-2.5 rounded-lg bg-blue-50 hover:bg-[#003B87] text-[#003B87] hover:text-white text-xs font-bold flex items-center justify-center gap-1 transition-colors shadow-xs"
                               >
-                                <span>Checklist &amp; Guide</span>
-                                <ArrowRight className="w-3.5 h-3.5" />
+                                <span>Checklist</span>
+                                <ArrowRight className="w-3 h-3" />
                               </Link>
 
                               <button
@@ -409,7 +393,7 @@ export default function Services({ onOpenEnquiry }) {
                                   setSideSubmitted(false);
                                   onOpenEnquiry(service.title);
                                 }}
-                                className="py-2.5 px-3.5 rounded-xl bg-emerald-50 hover:bg-[#25D366] text-emerald-700 hover:text-white border border-emerald-200 hover:border-emerald-500 text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap transition-all shadow-xs"
+                                className="py-2 px-3 rounded-lg bg-emerald-50 hover:bg-[#25D366] text-emerald-700 hover:text-white border border-emerald-200 hover:border-emerald-500 text-xs font-bold flex items-center justify-center gap-1 cursor-pointer whitespace-nowrap transition-colors shadow-xs"
                                 title="Enquire on WhatsApp"
                               >
                                 <WhatsAppIcon className="w-3.5 h-3.5" />
@@ -426,43 +410,38 @@ export default function Services({ onOpenEnquiry }) {
             </div>
 
             {/* Right 4 Cols: Sticky High-Converting Assistance Helpdesk */}
-            <div className="lg:col-span-4 lg:sticky lg:top-24 space-y-5">
+            <div className="lg:col-span-4 lg:sticky lg:top-20 space-y-4">
               {/* Card 1: Fast WhatsApp Consultation Desk */}
-              <div className="bg-white rounded-3xl shadow-xl border-2 border-[#F56E0F] overflow-hidden">
-                <div className="orange-gradient px-6 py-4 text-white">
-                  <div className="flex items-center justify-between mb-1">
+              <div className="bg-white rounded-2xl shadow-lg border-2 border-[#F56E0F] overflow-hidden">
+                <div className="orange-gradient px-5 py-3.5 text-white">
+                  <div className="flex items-center justify-between mb-0.5">
                     <span className="text-[10px] font-black uppercase tracking-widest text-orange-100">
                       Direct WhatsApp Desk
                     </span>
                     <span className="inline-flex items-center gap-1 text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                       Live Support
                     </span>
                   </div>
-                  <h3 className="text-lg font-extrabold">
+                  <h3 className="text-base font-extrabold">
                     Get Free PF Guidance
                   </h3>
-                  <p className="text-xs text-orange-100 mt-0.5">
-                    Fill below to connect instantly on WhatsApp.
-                  </p>
                 </div>
 
-                <div className="p-6">
+                <div className="p-4 sm:p-5">
                   {sideSubmitted ? (
-                    <div className="py-6 text-center space-y-3">
-                      <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
-                      <h4 className="text-base font-extrabold text-slate-900">
+                    <div className="py-4 text-center space-y-2.5">
+                      <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
+                      <h4 className="text-sm font-extrabold text-slate-900">
                         Enquiry Sent to WhatsApp!
                       </h4>
                       <p className="text-xs text-slate-600">
-                        Thank you, <strong>{sideForm.name}</strong>. Your requirement for{' '}
-                        <strong>{sideForm.service}</strong> has been opened in WhatsApp. Please tap{' '}
-                        <strong>Send</strong> to deliver it.
+                        Thank you, <strong>{sideForm.name}</strong>. Your enquiry has been opened in WhatsApp.
                       </p>
                       <button
                         type="button"
                         onClick={handleSideWhatsApp}
-                        className="w-full py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                        className="w-full py-2 px-3 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
                       >
                         <WhatsAppIcon className="w-4 h-4" />
                         <span>Click If WhatsApp Didn't Open</span>
@@ -476,20 +455,20 @@ export default function Services({ onOpenEnquiry }) {
                       </button>
                     </div>
                   ) : (
-                    <form onSubmit={handleSideSubmit} className="space-y-3.5">
+                    <form onSubmit={handleSideSubmit} className="space-y-3">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1">
                           Your Full Name *
                         </label>
                         <div className="relative">
-                          <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                          <User className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5" />
                           <input
                             type="text"
                             required
                             placeholder="Enter your name"
                             value={sideForm.name}
                             onChange={(e) => setSideForm({ ...sideForm, name: e.target.value })}
-                            className="w-full pl-9 pr-3 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none"
+                            className="w-full pl-8 pr-3 py-2 text-xs rounded-xl border border-slate-300 focus:border-[#003B87] outline-none"
                           />
                         </div>
                       </div>
@@ -499,14 +478,14 @@ export default function Services({ onOpenEnquiry }) {
                           Mobile / WhatsApp Number *
                         </label>
                         <div className="relative">
-                          <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                          <Phone className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5" />
                           <input
                             type="tel"
                             required
                             placeholder="Enter 10-digit mobile number"
                             value={sideForm.phone}
                             onChange={(e) => setSideForm({ ...sideForm, phone: e.target.value })}
-                            className="w-full pl-9 pr-3 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none"
+                            className="w-full pl-8 pr-3 py-2 text-xs rounded-xl border border-slate-300 focus:border-[#003B87] outline-none"
                           />
                         </div>
                       </div>
@@ -516,11 +495,11 @@ export default function Services({ onOpenEnquiry }) {
                           Select Required Service *
                         </label>
                         <div className="relative">
-                          <FileText className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                          <FileText className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5" />
                           <select
                             value={sideForm.service}
                             onChange={(e) => setSideForm({ ...sideForm, service: e.target.value })}
-                            className="w-full pl-9 pr-3 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none bg-white font-semibold text-[#003B87]"
+                            className="w-full pl-8 pr-3 py-2 text-xs rounded-xl border border-slate-300 focus:border-[#003B87] outline-none bg-white font-semibold text-[#003B87]"
                           >
                             {SERVICE_CATEGORIES.map((cat) => (
                               <optgroup key={cat.id} label={cat.title}>
@@ -537,14 +516,14 @@ export default function Services({ onOpenEnquiry }) {
 
                       <button
                         type="submit"
-                        className="w-full py-3.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold text-white bg-[#25D366] hover:bg-[#1ebe57] flex items-center justify-center gap-2 cursor-pointer shadow-md transition-all active:scale-98"
+                        className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] flex items-center justify-center gap-1.5 cursor-pointer shadow-md transition-all active:scale-98"
                       >
                         <WhatsAppIcon className="w-4 h-4" />
                         <span>Send Enquiry via WhatsApp</span>
                       </button>
 
-                      <p className="text-[11px] text-center text-slate-500 pt-1">
-                        Instant response on WhatsApp from our PF process specialist.
+                      <p className="text-[10px] text-center text-slate-500 pt-0.5">
+                        Instant response on WhatsApp from our PF specialist.
                       </p>
                     </form>
                   )}
@@ -552,16 +531,16 @@ export default function Services({ onOpenEnquiry }) {
               </div>
 
               {/* Card 2: Direct Call Helpline Card */}
-              <div className="bg-[#00285E] text-white rounded-3xl p-6 shadow-md space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-orange-300">
-                    <PhoneCall className="w-5 h-5" />
+              <div className="bg-[#00285E] text-white rounded-2xl p-4 sm:p-5 shadow-sm space-y-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-orange-300 shrink-0">
+                    <PhoneCall className="w-4 h-4" />
                   </div>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-wider text-orange-300">
                       Need Urgent Call Support?
                     </p>
-                    <p className="text-sm font-extrabold text-white">
+                    <p className="text-xs font-extrabold text-white">
                       Speak With Our Specialist
                     </p>
                   </div>
@@ -569,14 +548,14 @@ export default function Services({ onOpenEnquiry }) {
 
                 <a
                   href={`tel:${LEAD_CONFIG.phoneDial}`}
-                  className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-white text-[#003B87] hover:bg-slate-100 font-extrabold text-xs sm:text-sm shadow-sm transition-all"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 px-3 rounded-xl bg-white text-[#003B87] hover:bg-slate-100 font-bold text-xs shadow-xs transition-all"
                 >
-                  <PhoneCall className="w-4 h-4 text-[#F56E0F]" />
+                  <PhoneCall className="w-3.5 h-3.5 text-[#F56E0F]" />
                   <span>Call: {LEAD_CONFIG.phoneDisplay}</span>
                 </a>
 
-                <div className="flex items-center gap-2 text-[11px] text-blue-200 pt-1 border-t border-white/10">
-                  <Clock className="w-3.5 h-3.5 text-orange-300 shrink-0" />
+                <div className="flex items-center gap-1.5 text-[10px] text-blue-200 pt-0.5 border-t border-white/10">
+                  <Clock className="w-3 h-3 text-orange-300 shrink-0" />
                   <span>{LEAD_CONFIG.workingHours}</span>
                 </div>
               </div>
@@ -584,30 +563,28 @@ export default function Services({ onOpenEnquiry }) {
           </div>
 
           {/* =====================================================================
-              03. BOTTOM FULL-WIDTH CALLOUT BANNER
+              03. BOTTOM COMPACT CALLOUT BANNER
           ====================================================================== */}
-          <div className="mt-16 rounded-3xl bg-gradient-to-r from-[#003B87] via-[#002b66] to-[#061833] text-white p-8 sm:p-10 shadow-xl relative overflow-hidden">
-            <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-              <div className="space-y-2 max-w-2xl">
-                <span className="text-xs font-bold uppercase tracking-widest text-orange-300">
+          <div className="mt-12 rounded-2xl bg-gradient-to-r from-[#003B87] via-[#002b66] to-[#061833] text-white p-6 sm:p-8 shadow-lg relative overflow-hidden">
+            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+              <div className="space-y-1.5 max-w-2xl">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-orange-300">
                   CANNOT FIND YOUR SPECIFIC PF CASE?
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-white">
+                <h3 className="text-lg sm:text-2xl font-black text-white">
                   Have a Complex or Rejected PF Claim?
                 </h3>
-                <p className="text-xs sm:text-sm text-blue-100 leading-relaxed">
-                  Our specialists handle complex cases including Joint Declarations, trust transfers, closed company member records, father name corrections, and EPFO grievances.
+                <p className="text-xs text-blue-100 leading-relaxed">
+                  Our specialists handle Joint Declarations, trust transfers, closed company records, father name corrections, and EPFO grievances.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
                 <a
                   href={getWhatsAppUrl({ service: 'Complex PF Case Consultation' })}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-extrabold text-white bg-[#25D366] hover:bg-[#1ebe57] shadow-lg transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] shadow-md transition-all"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                   <span>Chat on WhatsApp</span>
@@ -615,7 +592,7 @@ export default function Services({ onOpenEnquiry }) {
 
                 <a
                   href={`tel:${LEAD_CONFIG.phoneDial}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-extrabold text-white orange-gradient shadow-lg transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white orange-gradient shadow-md transition-all"
                 >
                   <PhoneCall className="w-4 h-4" />
                   <span>Call: {LEAD_CONFIG.phoneDisplay}</span>

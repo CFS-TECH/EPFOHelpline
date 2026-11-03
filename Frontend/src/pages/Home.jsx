@@ -87,60 +87,60 @@ export default function Home({ onOpenEnquiry }) {
   return (
     <div id="home">
       {/* =====================================================================
-          01. HERO SECTION — Clean, Fast & Focused on Contact Form
+          01. HERO SECTION — Clean, Compact & Focused on Contact Form
       ====================================================================== */}
-      <section className="brand-gradient text-white py-12 lg:py-16">
+      <section className="brand-gradient text-white py-8 sm:py-10 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Left Column: Hero Text & Direct Buttons (7 cols) */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/15">
+            <div className="lg:col-span-7 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15">
                 <span className="w-2 h-2 rounded-full bg-[#F56E0F]" />
-                <span className="text-xs font-bold tracking-wider uppercase text-orange-300">
+                <span className="text-[11px] font-bold tracking-wider uppercase text-orange-300">
                   PFHELPLINE | PROVIDENT FUND SERVICES
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
                 Clarity in Every PF Process.{' '}
                 <span className="text-[#F56E0F]">Confidence in Every Step.</span>
               </h1>
 
-              <p className="text-sm sm:text-base text-blue-100 leading-relaxed max-w-xl">
+              <p className="text-xs sm:text-sm text-blue-100 leading-relaxed max-w-xl">
                 Professional assistance for Provident Fund services, employee documentation, PF KYC, profile corrections, and pension requirements. We simplify complex procedures through structured support and accurate guidance.
               </p>
 
               {/* Pillar Tags */}
-              <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-semibold text-white pt-1">
+              <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold text-white pt-0.5">
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#F56E0F]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#F56E0F]" />
                   PF Assistance
                 </span>
                 <span className="text-white/30">|</span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#F56E0F]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#F56E0F]" />
                   Employee Support
                 </span>
                 <span className="text-white/30">|</span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#F56E0F]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#F56E0F]" />
                   Pension &amp; Claim Guidance
                 </span>
               </div>
 
               {/* Direct Actions: Call Helpline & Browse Services */}
-              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 pt-1.5">
                 <a
                   href={`tel:${LEAD_CONFIG.phoneDial}`}
-                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl text-sm sm:text-base font-bold text-white orange-gradient shadow-lg hover:opacity-95 transition-all w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white orange-gradient shadow-md hover:opacity-95 transition-all w-full sm:w-auto"
                 >
-                  <PhoneCall className="w-4 h-4 shrink-0" />
+                  <PhoneCall className="w-3.5 h-3.5 shrink-0" />
                   <span>Call Helpline: {LEAD_CONFIG.phoneDisplay}</span>
                 </a>
 
                 <Link
                   to="/services"
-                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl text-sm sm:text-base font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all w-full sm:w-auto"
                 >
                   <span>Browse All Services &rarr;</span>
                 </Link>
@@ -149,16 +149,16 @@ export default function Home({ onOpenEnquiry }) {
 
             {/* Right Column: Clean, Prominent Contact Form (5 cols) */}
             <div className="lg:col-span-5" id="hero-contact-form">
-              <div className="bg-white text-slate-900 rounded-2xl shadow-2xl border-t-4 border-[#F56E0F] p-5 sm:p-7">
-                <div className="mb-4 pb-3 border-b border-slate-100">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#F56E0F]">
-                    Free Consultation
+              <div className="bg-white text-slate-900 rounded-2xl shadow-xl border-t-4 border-[#F56E0F] p-4 sm:p-5">
+                <div className="mb-3 pb-2.5 border-b border-slate-100">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#F56E0F]">
+                    Free Consultation Desk
                   </span>
-                  <h2 className="text-xl font-extrabold text-slate-900">
+                  <h2 className="text-lg font-extrabold text-slate-900">
                     Speak With Our PF Team
                   </h2>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Fill in your details for an instant callback and expert assistance.
+                  <p className="text-[11px] text-slate-500 mt-0.5">
+                    Fill in your details for instant WhatsApp solution &amp; callback.
                   </p>
                 </div>
 
@@ -267,34 +267,34 @@ export default function Home({ onOpenEnquiry }) {
       {/* =====================================================================
           02. ABOUT PFHELPLINE SECTION
       ====================================================================== */}
-      <section id="about" className="py-16 bg-white border-b border-slate-200/70 scroll-mt-16">
+      <section id="about" className="py-10 sm:py-12 bg-white border-b border-slate-200/70 scroll-mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-5">
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+              <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200">
                 <img
                   src={PHOTOS.aboutPrimary}
                   alt="About PFHelpline"
-                  className="w-full h-64 sm:h-72 object-cover"
+                  className="w-full h-56 sm:h-64 object-cover"
                 />
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-4">
+            <div className="lg:col-span-7 space-y-3.5">
               <span className="inline-block px-3 py-1 rounded-full bg-blue-50 text-[#003B87] text-xs font-bold uppercase tracking-wider">
                 ABOUT PFHELPLINE
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 leading-snug">
                 A More Structured Approach to Provident Fund Assistance.
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Managing Provident Fund requirements involves multiple procedures, documentation and verification steps. PFHelpline is focused on making these processes easier to navigate through organised assistance and professional customer support.
               </p>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 We help individuals understand their PF-related requirements, prepare for applicable procedures and navigate the relevant service processes with greater clarity.
               </p>
-              <div className="p-4 rounded-xl bg-slate-50 border-l-4 border-[#F56E0F]">
-                <p className="text-sm sm:text-base font-bold text-slate-900">
+              <div className="p-3.5 rounded-xl bg-slate-50 border-l-4 border-[#F56E0F]">
+                <p className="text-xs sm:text-sm font-bold text-slate-900">
                   <span className="text-[#003B87]">Our Approach:</span> Professional. Transparent. Process-Driven.
                 </p>
               </div>
@@ -304,12 +304,9 @@ export default function Home({ onOpenEnquiry }) {
       </section>
 
       {/* =====================================================================
-          03. SERVICES SECTION — Clean 3-Category Layout (All 30 Services)
-      ====================================================================== */}
-      {/* =====================================================================
           03. SERVICES SECTION - Clean, Balanced Interactive Tabbed Grid
       ====================================================================== */}
-      <section id="services" className="py-12 sm:py-16 lg:py-20 bg-slate-50 scroll-mt-16 border-t border-slate-200/80">
+      <section id="services" className="py-10 sm:py-12 bg-slate-50 scroll-mt-16 border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3 mb-8 sm:mb-10">
             <span className="inline-block px-3 py-1 rounded-full bg-blue-50 text-[#003B87] text-[11px] sm:text-xs font-bold uppercase tracking-wider">
@@ -471,28 +468,28 @@ export default function Home({ onOpenEnquiry }) {
       {/* =====================================================================
           04. WHY PFHELPLINE SECTION
       ====================================================================== */}
-      <section className="py-16 bg-white border-t border-slate-200/70">
+      <section className="py-10 sm:py-12 bg-white border-t border-slate-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto space-y-2 mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#003B87]">
+          <div className="text-center max-w-2xl mx-auto space-y-1.5 mb-8">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#003B87]">
               THE PFHELPLINE DIFFERENCE
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900">
               Built Around Process Clarity and Professional Support.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {WHY_PFHELPLINE_DATA.map((item) => (
               <div
                 key={item.title}
-                className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3"
+                className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2.5"
               >
-                <div className="w-11 h-11 rounded-xl bg-[#003B87] text-white flex items-center justify-center">
-                  <ServiceIcon name={item.iconName} className="w-5 h-5" />
+                <div className="w-10 h-10 rounded-xl bg-[#003B87] text-white flex items-center justify-center">
+                  <ServiceIcon name={item.iconName} className="w-4 h-4" />
                 </div>
-                <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <h3 className="text-sm font-bold text-slate-900">{item.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -504,29 +501,29 @@ export default function Home({ onOpenEnquiry }) {
       {/* =====================================================================
           05 & 06. WORKING PROCESS + WHO WE SUPPORT
       ====================================================================== */}
-      <section id="process" className="py-16 bg-[#061833] text-white scroll-mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+      <section id="process" className="py-10 sm:py-12 bg-[#061833] text-white scroll-mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           {/* 05. Process */}
           <div>
-            <div className="text-center max-w-2xl mx-auto space-y-2 mb-10">
-              <span className="text-xs font-bold uppercase tracking-wider text-orange-300">
+            <div className="text-center max-w-2xl mx-auto space-y-1.5 mb-8">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-orange-300">
                 OUR WORKING PROCESS
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-white">
                 From Initial Enquiry to Process Guidance.
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {PROCESS_STEPS.map((item) => (
                 <div
                   key={item.step}
-                  className="rounded-2xl bg-white/8 border border-white/15 p-5"
+                  className="rounded-2xl bg-white/8 border border-white/15 p-4 sm:p-5"
                 >
-                  <span className="inline-block px-3 py-1 rounded-lg orange-gradient text-white font-extrabold text-xs mb-3">
+                  <span className="inline-block px-2.5 py-0.5 rounded-md orange-gradient text-white font-extrabold text-[11px] mb-2.5">
                     {item.step}
                   </span>
-                  <h3 className="text-base font-bold text-white mb-1.5">
+                  <h3 className="text-sm font-bold text-white mb-1">
                     {item.step} &mdash; {item.title}
                   </h3>
                   <p className="text-xs text-blue-100 leading-relaxed">
@@ -539,29 +536,29 @@ export default function Home({ onOpenEnquiry }) {
 
           {/* 06. Who We Support */}
           <div>
-            <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
-              <span className="text-xs font-bold uppercase tracking-wider text-orange-300">
+            <div className="text-center max-w-2xl mx-auto space-y-1.5 mb-6">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-orange-300">
                 WHO WE SUPPORT
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-white">
                 Assistance Designed Around Different PF Requirements.
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <div className="rounded-2xl bg-white text-slate-900 p-6 flex flex-col justify-between">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+              <div className="rounded-2xl bg-white text-slate-900 p-5 sm:p-6 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-bold uppercase text-[#F56E0F]">
+                  <span className="text-[11px] font-bold uppercase text-[#F56E0F]">
                     Active Employees
                   </span>
-                  <h3 className="text-xl font-extrabold text-slate-900 mt-1">
+                  <h3 className="text-lg font-extrabold text-slate-900 mt-0.5">
                     For Employees
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                  <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
                     Support for PF withdrawal, transfer, UAN, KYC and employee profile-related requirements.
                   </p>
                 </div>
-                <div className="pt-4 mt-4 border-t border-slate-100">
+                <div className="pt-3.5 mt-3.5 border-t border-slate-100">
                   <button
                     type="button"
                     onClick={() => selectServiceAndScroll('PF Withdrawal Assistance')}
@@ -572,19 +569,19 @@ export default function Home({ onOpenEnquiry }) {
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-white text-slate-900 p-6 flex flex-col justify-between">
+              <div className="rounded-2xl bg-white text-slate-900 p-5 sm:p-6 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-bold uppercase text-[#F56E0F]">
+                  <span className="text-[11px] font-bold uppercase text-[#F56E0F]">
                     Settlement &amp; Pension
                   </span>
-                  <h3 className="text-xl font-extrabold text-slate-900 mt-1">
+                  <h3 className="text-lg font-extrabold text-slate-900 mt-0.5">
                     For Former Employees &amp; Families
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                  <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
                     Guidance on applicable PF settlement procedures, EPS pension, family pension, death claims, and account-related queries.
                   </p>
                 </div>
-                <div className="pt-4 mt-4 border-t border-slate-100">
+                <div className="pt-3.5 mt-3.5 border-t border-slate-100">
                   <button
                     type="button"
                     onClick={() => selectServiceAndScroll('EPS Pension Assistance')}
@@ -602,32 +599,32 @@ export default function Home({ onOpenEnquiry }) {
       {/* =====================================================================
           07. CONTACT & CTA SECTION
       ====================================================================== */}
-      <section id="contact" className="py-16 bg-slate-50 scroll-mt-16">
+      <section id="contact" className="py-10 sm:py-12 bg-slate-50 scroll-mt-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-white border border-slate-200 shadow-lg overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+          <div className="rounded-2xl bg-white border border-slate-200 shadow-md overflow-hidden grid grid-cols-1 lg:grid-cols-12">
             {/* Left Info (5 cols) */}
-            <div className="lg:col-span-5 brand-gradient text-white p-7 sm:p-8 flex flex-col justify-between">
-              <div className="space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-orange-300">
+            <div className="lg:col-span-5 brand-gradient text-white p-5 sm:p-7 flex flex-col justify-between">
+              <div className="space-y-2.5">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-orange-300">
                   CONTACT US
                 </span>
-                <h2 className="text-2xl font-extrabold leading-tight">
+                <h2 className="text-xl sm:text-2xl font-extrabold leading-tight">
                   Have a PF Requirement That Needs Attention?
                 </h2>
-                <p className="text-xs sm:text-sm text-blue-100 leading-relaxed">
+                <p className="text-xs text-blue-100 leading-relaxed">
                   Connect with our team to understand the appropriate process, documentation and available assistance for your requirement.
                 </p>
               </div>
 
-              <div className="space-y-3 pt-6">
+              <div className="space-y-2.5 pt-4">
                 <a
                   href={`tel:${LEAD_CONFIG.phoneDial}`}
-                  className="flex items-center gap-3 p-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15"
+                  className="flex items-center gap-3 p-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15"
                 >
-                  <PhoneCall className="w-5 h-5 text-[#F56E0F]" />
+                  <PhoneCall className="w-4 h-4 text-[#F56E0F]" />
                   <div>
-                    <p className="text-[11px] text-orange-200 font-bold uppercase">Call Us</p>
-                    <p className="text-sm font-extrabold text-white">{LEAD_CONFIG.phoneDisplay}</p>
+                    <p className="text-[10px] text-orange-200 font-bold uppercase">Call Us</p>
+                    <p className="text-xs sm:text-sm font-extrabold text-white">{LEAD_CONFIG.phoneDisplay}</p>
                   </div>
                 </a>
 
@@ -635,23 +632,23 @@ export default function Home({ onOpenEnquiry }) {
                   href={getWhatsAppUrl({ service: 'Discuss My PF Requirement' })}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3.5 rounded-xl bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/40"
+                  className="flex items-center gap-3 p-3 rounded-xl bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/40"
                 >
-                  <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
+                  <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                   <div>
-                    <p className="text-[11px] text-emerald-300 font-bold uppercase">WhatsApp</p>
-                    <p className="text-sm font-extrabold text-white">Chat With Our Team</p>
+                    <p className="text-[10px] text-emerald-300 font-bold uppercase">WhatsApp</p>
+                    <p className="text-xs sm:text-sm font-extrabold text-white">Chat With Our Team</p>
                   </div>
                 </a>
 
-                <p className="text-xs text-orange-200 italic pt-1">
+                <p className="text-[11px] text-orange-200 italic pt-0.5">
                   *Our team is here to help you navigate your PF-related queries.*
                 </p>
               </div>
             </div>
 
             {/* Right Form (7 cols) */}
-            <div className="lg:col-span-7 p-7 sm:p-8">
+            <div className="lg:col-span-7 p-5 sm:p-7">
               {bottomSubmitted ? (
                 <div className="py-10 text-center space-y-3">
                   <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
