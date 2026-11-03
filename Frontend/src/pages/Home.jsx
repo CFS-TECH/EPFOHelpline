@@ -89,15 +89,15 @@ export default function Home({ onOpenEnquiry }) {
       {/* =====================================================================
           01. HERO SECTION — Clean, Compact & Focused on Contact Form
       ====================================================================== */}
-      <section className="brand-gradient text-white py-8 sm:py-10 lg:py-12">
+      <section className="brand-gradient text-white py-6 sm:py-10 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
             {/* Left Column: Hero Text & Direct Buttons (7 cols) */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15">
-                <span className="w-2 h-2 rounded-full bg-[#F56E0F]" />
-                <span className="text-[11px] font-bold tracking-wider uppercase text-orange-300">
-                  PFHELPLINE | PROVIDENT FUND SERVICES
+            <div className="lg:col-span-7 space-y-3 sm:space-y-4">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 border border-white/15">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F56E0F]" />
+                <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-orange-300">
+                  PROVIDENT FUND &amp; PENSION ASSISTANCE
                 </span>
               </div>
 
@@ -106,12 +106,18 @@ export default function Home({ onOpenEnquiry }) {
                 <span className="text-[#F56E0F]">Confidence in Every Step.</span>
               </h1>
 
+              {/* Crisp text on mobile, detailed on desktop */}
               <p className="text-xs sm:text-sm text-blue-100 leading-relaxed max-w-xl">
-                Professional assistance for Provident Fund services, employee documentation, PF KYC, profile corrections, and pension requirements. We simplify complex procedures through structured support and accurate guidance.
+                <span className="sm:hidden">
+                  Instant guidance for PF withdrawal, KYC updates, profile corrections &amp; pension claims.
+                </span>
+                <span className="hidden sm:inline">
+                  Professional assistance for Provident Fund services, employee documentation, PF KYC, profile corrections, and pension requirements. We simplify complex procedures through structured support and accurate guidance.
+                </span>
               </p>
 
-              {/* Pillar Tags */}
-              <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold text-white pt-0.5">
+              {/* Pillar Tags: Hidden on mobile to avoid messy wrapping, clean on tablet/desktop */}
+              <div className="hidden sm:flex flex-wrap items-center gap-2.5 text-xs font-semibold text-white pt-0.5">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#F56E0F]" />
                   PF Assistance
@@ -128,22 +134,25 @@ export default function Home({ onOpenEnquiry }) {
                 </span>
               </div>
 
-              {/* Direct Actions: Call Helpline & Browse Services */}
-              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 pt-1.5">
+              {/* Attractive Direct Actions on Mobile: 2 Side-by-Side balanced buttons */}
+              <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2 pt-1">
                 <a
                   href={`tel:${LEAD_CONFIG.phoneDial}`}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white orange-gradient shadow-md hover:opacity-95 transition-all w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold text-white orange-gradient shadow-md hover:opacity-95 transition-all text-center"
                 >
                   <PhoneCall className="w-3.5 h-3.5 shrink-0" />
-                  <span>Call Helpline: {LEAD_CONFIG.phoneDisplay}</span>
+                  <span className="truncate">Call Helpline</span>
                 </a>
 
-                <Link
-                  to="/services"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all w-full sm:w-auto"
+                <a
+                  href={getWhatsAppUrl({ service: 'Mobile Hero Quick Chat' })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] shadow-md transition-all text-center"
                 >
-                  <span>Browse All Services &rarr;</span>
-                </Link>
+                  <WhatsAppIcon className="w-3.5 h-3.5 shrink-0" />
+                  <span className="truncate">WhatsApp</span>
+                </a>
               </div>
             </div>
 
@@ -288,9 +297,9 @@ export default function Home({ onOpenEnquiry }) {
                 A More Structured Approach to Provident Fund Assistance.
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Managing Provident Fund requirements involves multiple procedures, documentation and verification steps. PFHelpline is focused on making these processes easier to navigate through organised assistance and professional customer support.
+                Managing Provident Fund requirements involves multiple procedures, documentation and verification steps. PFHelpline makes these processes easier to navigate through organised guidance and professional support.
               </p>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="hidden sm:block text-xs sm:text-sm text-slate-600 leading-relaxed">
                 We help individuals understand their PF-related requirements, prepare for applicable procedures and navigate the relevant service processes with greater clarity.
               </p>
               <div className="p-3.5 rounded-xl bg-slate-50 border-l-4 border-[#F56E0F]">
