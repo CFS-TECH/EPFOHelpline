@@ -175,22 +175,73 @@ export default function Home({ onOpenEnquiry }) {
                   <span className="truncate">WhatsApp</span>
                 </a>
               </div>
+              {/* Trust Social Proof with Client Avatars */}
+              <div className="flex items-center gap-3 pt-2">
+                <div className="flex -space-x-2">
+                  {PHOTOS.heroAvatars.map((url, i) => (
+                    <img
+                      key={i}
+                      src={url}
+                      alt="PF Member"
+                      className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-xs"
+                    />
+                  ))}
+                </div>
+                <div className="text-xs text-blue-100">
+                  <div className="flex items-center gap-1 text-amber-400 font-bold">
+                    <span>★★★★★</span>
+                    <span className="text-white text-xs font-bold">4.9 / 5.0</span>
+                  </div>
+                  <p className="text-[11px] text-blue-200 font-medium">Trusted by 2,500+ PF members across India</p>
+                </div>
+              </div>
             </div>
 
-            {/* Right Column: Clean, Prominent Contact Form (5 cols) */}
+            {/* Right Column: Clean, Prominent Contact Form with Professional Advisor Photo (5 cols) */}
             <div className="lg:col-span-5" id="hero-contact-form">
-              <div className="bg-white text-slate-900 rounded-2xl shadow-xl border-t-4 border-[#F56E0F] p-4 sm:p-5">
-                <div className="mb-3 pb-2.5 border-b border-slate-100">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#F56E0F]">
-                    Free Consultation Desk
-                  </span>
-                  <h2 className="text-lg font-extrabold text-slate-900">
-                    Speak With Our PF Team
-                  </h2>
-                  <p className="text-[11px] text-slate-500 mt-0.5">
-                    Fill in your details for instant WhatsApp solution &amp; callback.
-                  </p>
+              <div className="bg-white text-slate-900 rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
+                {/* Professional Advisor Photo Showcase */}
+                <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-900">
+                  <img
+                    src={PHOTOS.heroMain}
+                    alt="PFHelpline Senior Advisory Consultant"
+                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#02152e] via-[#02152e]/40 to-transparent" />
+                  
+                  {/* Floating Trust Badges */}
+                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-md flex items-center gap-1.5 border border-slate-100">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span className="text-[11px] font-bold text-slate-800">100% EPFO SOP Guidance</span>
+                  </div>
+
+                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md flex items-center gap-1 border border-slate-100 text-amber-500 text-[11px] font-extrabold">
+                    <span>★ 4.9/5</span>
+                  </div>
+
+                  {/* Photo Bottom Caption */}
+                  <div className="absolute bottom-3 left-4 right-4 text-white">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-orange-300 block">
+                      Dedicated Advisory Desk
+                    </span>
+                    <p className="text-sm font-extrabold leading-tight">
+                      Connect with Verified PF Specialists
+                    </p>
+                  </div>
                 </div>
+
+                <div className="p-4 sm:p-5">
+                  <div className="mb-3 pb-2.5 border-b border-slate-100">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#F56E0F]">
+                      Free Consultation Desk
+                    </span>
+                    <h2 className="text-base sm:text-lg font-extrabold text-slate-900">
+                      Speak With Our PF Team
+                    </h2>
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      Fill in your details for instant WhatsApp solution &amp; callback.
+                    </p>
+                  </div>
 
                 {heroSubmitted ? (
                   <div className="py-6 text-center space-y-3">
@@ -288,6 +339,7 @@ export default function Home({ onOpenEnquiry }) {
                     </div>
                   </form>
                 )}
+                </div>
               </div>
             </div>
           </div>
