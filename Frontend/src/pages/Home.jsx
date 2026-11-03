@@ -306,23 +306,24 @@ export default function Home({ onOpenEnquiry }) {
       {/* =====================================================================
           03. SERVICES SECTION - Clean, Balanced Interactive Tabbed Grid
       ====================================================================== */}
-      <section id="services" className="py-10 sm:py-12 bg-slate-50 scroll-mt-16 border-t border-slate-200/80">
+      <section id="services" className="py-7 sm:py-12 bg-slate-50 scroll-mt-16 border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3 mb-8 sm:mb-10">
-            <span className="inline-block px-3 py-1 rounded-full bg-blue-50 text-[#003B87] text-[11px] sm:text-xs font-bold uppercase tracking-wider">
+          <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-3 mb-5 sm:mb-8">
+            <span className="inline-block px-3 py-0.5 sm:py-1 rounded-full bg-blue-50 text-[#003B87] text-[11px] sm:text-xs font-bold uppercase tracking-wider">
               OUR SPECIALIZED SERVICES
             </span>
             <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight break-words">
               Structured Solutions for Every PF Requirement.
             </h2>
-            <p className="text-xs sm:text-sm lg:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            {/* Subtitle hidden on mobile to reduce clutter */}
+            <p className="hidden sm:block text-xs sm:text-sm lg:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Select a category below to explore specific services, document requirements, and step-by-step assistance.
             </p>
           </div>
 
-          {/* Clean Segmented Category Tabs - Perfectly Matching Widths on Mobile & Tab */}
-          <div className="max-w-xl sm:max-w-4xl mx-auto mb-8">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+          {/* Clean Horizontal Tabs on Mobile (Scrollable single line), 3 columns on Tablet & Desktop */}
+          <div className="max-w-4xl mx-auto mb-4 sm:mb-8">
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 sm:pb-0 sm:grid sm:grid-cols-3 sm:gap-3">
               {SERVICE_CATEGORIES.map((cat) => {
                 const isActive = activeTab === cat.id;
                 return (
@@ -330,15 +331,15 @@ export default function Home({ onOpenEnquiry }) {
                     key={cat.id}
                     type="button"
                     onClick={() => setActiveTab(cat.id)}
-                    className={`w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center justify-between sm:justify-center gap-2.5 border shadow-xs ${
+                    className={`shrink-0 sm:shrink sm:w-full px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center justify-center gap-2 border shadow-xs whitespace-nowrap sm:whitespace-normal ${
                       isActive
                         ? 'bg-[#003B87] text-white border-[#003B87] shadow-md ring-2 ring-[#003B87]/20'
                         : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 hover:border-slate-300'
                     }`}
                   >
-                    <span className="text-left sm:text-center truncate">{cat.shortTitle}</span>
+                    <span>{cat.shortTitle}</span>
                     <span
-                      className={`px-2.5 py-0.5 rounded-full text-xs font-extrabold shrink-0 ${
+                      className={`px-2 py-0.5 rounded-full text-[11px] sm:text-xs font-extrabold shrink-0 ${
                         isActive
                           ? 'bg-[#F56E0F] text-white'
                           : 'bg-slate-100 text-slate-700'
@@ -352,35 +353,57 @@ export default function Home({ onOpenEnquiry }) {
             </div>
           </div>
 
-          {/* Active Category Header Banner */}
+          {/* Active Category Header: Minimal compact row on mobile, full banner on desktop */}
           {currentCategory && (
-            <div className="mb-8 p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#F56E0F] block">
-                  Category {currentCategory.number}
-                </span>
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mt-0.5">
-                  {currentCategory.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
-                  {currentCategory.subtitle}
-                </p>
+            <>
+              {/* Desktop Banner */}
+              <div className="hidden sm:flex mb-8 p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#F56E0F] block">
+                    Category {currentCategory.number}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mt-0.5">
+                    {currentCategory.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
+                    {currentCategory.subtitle}
+                  </p>
+                </div>
+
+                <Link
+                  to={
+                    currentCategory.id === 'employee-pf-services'
+                      ? '/for-employees'
+                      : currentCategory.id === 'pension-related-services'
+                      ? '/pension-services'
+                      : '/services'
+                  }
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-blue-50 hover:bg-[#003B87] text-[#003B87] hover:text-white text-xs font-bold transition-all shrink-0 w-full sm:w-auto"
+                >
+                  <span>View Dedicated Page</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
 
-              <Link
-                to={
-                  currentCategory.id === 'employee-pf-services'
-                    ? '/for-employees'
-                    : currentCategory.id === 'pension-related-services'
-                    ? '/pension-services'
-                    : '/services'
-                }
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-blue-50 hover:bg-[#003B87] text-[#003B87] hover:text-white text-xs font-bold transition-all shrink-0 w-full sm:w-auto"
-              >
-                <span>View Dedicated Page</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+              {/* Mobile Compact Bar: Extra bulky card removed for clean mobile UX */}
+              <div className="flex sm:hidden items-center justify-between px-1 mb-4">
+                <span className="text-xs font-bold text-slate-800">
+                  {currentCategory.shortTitle} ({currentCategory.services.length})
+                </span>
+                <Link
+                  to={
+                    currentCategory.id === 'employee-pf-services'
+                      ? '/for-employees'
+                      : currentCategory.id === 'pension-related-services'
+                      ? '/pension-services'
+                      : '/services'
+                  }
+                  className="text-xs font-bold text-[#003B87] inline-flex items-center gap-1 hover:underline"
+                >
+                  <span>View All &rarr;</span>
+                </Link>
+              </div>
+            </>
           )}
 
           {/* Uniform, Balanced Responsive Grid of Cards */}

@@ -75,12 +75,12 @@ export default function ForEmployees({ onOpenEnquiry }) {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar sm:flex-wrap pb-1">
               {groups.map((grp) => (
                 <button
                   key={grp}
                   onClick={() => setActiveGroup(grp)}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                  className={`shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     activeGroup === grp
                       ? 'bg-[#003B87] text-white'
                       : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'

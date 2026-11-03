@@ -133,3 +133,12 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Hide scrollbar utility for sleek horizontal tab rows on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

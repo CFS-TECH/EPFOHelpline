@@ -192,11 +192,11 @@ export default function Services({ onOpenEnquiry }) {
               )}
             </div>
 
-            {/* Category Filter Pills */}
-            <div className="flex flex-wrap items-center gap-2 pt-3">
+            {/* Category Filter Pills - Horizontally Scrollable on Mobile */}
+            <div className="flex items-center gap-2 pt-3 overflow-x-auto no-scrollbar sm:flex-wrap pb-1">
               <button
                 onClick={() => setActiveCategory('all')}
-                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                className={`shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
                   activeCategory === 'all'
                     ? 'bg-[#003B87] text-white shadow-sm'
                     : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 shadow-xs'
@@ -220,7 +220,7 @@ export default function Services({ onOpenEnquiry }) {
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                    className={`shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
                       isActive
                         ? 'bg-[#003B87] text-white shadow-sm'
                         : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 shadow-xs'
