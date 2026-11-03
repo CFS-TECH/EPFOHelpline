@@ -87,23 +87,44 @@ export default function Home({ onOpenEnquiry }) {
   return (
     <div id="home">
       {/* =====================================================================
-          01. HERO SECTION — Clean, Compact & Focused on Contact Form
+          01. HERO SECTION — Premium Homepage Hero with Professional Backdrop
       ====================================================================== */}
-      <section className="brand-gradient text-white py-6 sm:py-10 lg:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-7 sm:py-11 lg:py-14 overflow-hidden bg-[#02152e]">
+        {/* Professional Background Image with Rich Corporate Overlay */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src={PHOTOS.ctaBg}
+            alt="Provident Fund Services Corporate Backdrop"
+            className="w-full h-full object-cover object-center opacity-35 mix-blend-luminosity scale-105"
+          />
+          {/* Multi-layered gradient to ensure deep brand blue and perfect text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#02152e]/95 via-[#002b66]/85 to-[#021838]/92" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#02152e] via-transparent to-[#02152e]/75" />
+          
+          {/* Ambient Lighting Orbs for a Rich, Attractive Modern Feel */}
+          <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/3 -right-20 w-80 h-80 bg-orange-500/20 rounded-full blur-3xl" />
+          
+          {/* Subtle Grid Texture */}
+          <div className="absolute inset-0 bg-hero-grid opacity-25" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
             {/* Left Column: Hero Text & Direct Buttons (7 cols) */}
             <div className="lg:col-span-7 space-y-3 sm:space-y-4">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 border border-white/15">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F56E0F]" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F56E0F] animate-pulse" />
                 <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-orange-300">
                   PROVIDENT FUND &amp; PENSION ASSISTANCE
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight drop-shadow-sm">
                 Clarity in Every PF Process.{' '}
-                <span className="text-[#F56E0F]">Confidence in Every Step.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
+                  Confidence in Every Step.
+                </span>
               </h1>
 
               {/* Crisp text on mobile, detailed on desktop */}
