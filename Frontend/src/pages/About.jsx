@@ -2,9 +2,10 @@ import React from 'react';
 import {
   ArrowRight,
   CheckCircle2,
-  ShieldCheck
+  ShieldCheck,
+  PhoneCall
 } from 'lucide-react';
-import { WHY_PFHELPLINE_DATA, PROCESS_STEPS, PHOTOS } from '../data/siteData';
+import { WHY_PFHELPLINE_DATA, PROCESS_STEPS, PHOTOS, LEAD_CONFIG, getWhatsAppUrl } from '../data/siteData';
 import ServiceIcon from '../components/ServiceIcon';
 import Reveal from '../components/Reveal';
 import PageHero from '../components/PageHero';
@@ -109,6 +110,113 @@ export default function About({ onOpenEnquiry }) {
                   </div>
                 </div>
               </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          FOUNDER & LEADERSHIP PROFILE — Sidarth Kumar
+      ====================================================================== */}
+      <section className="py-16 lg:py-22 bg-slate-50 border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-slate-900 via-[#002659] to-[#001738] rounded-3xl p-8 sm:p-12 lg:p-16 text-white shadow-2xl relative overflow-hidden">
+            {/* Background Accent Grids */}
+            <div className="absolute inset-0 bg-hero-grid opacity-15 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+              {/* Founder Image & Trust Card */}
+              <div className="lg:col-span-5">
+                <div className="relative mx-auto max-w-sm">
+                  <div className="rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl aspect-[4/5] bg-slate-800">
+                    <img
+                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
+                      alt="Sidarth Kumar - Founder, PFHelpline"
+                      className="w-full h-full object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#02152e]/85 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Floating Experience Badge */}
+                  <div className="absolute -bottom-4 left-6 right-6 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl text-slate-900 border border-slate-100 flex items-center justify-between">
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#F56E0F]">
+                        Leadership
+                      </p>
+                      <p className="text-sm font-extrabold text-slate-900">
+                        Sidarth Kumar
+                      </p>
+                      <p className="text-[11px] text-slate-500 font-semibold">
+                        Founder &amp; Principal Advisor
+                      </p>
+                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#F56E0F] flex items-center justify-center font-extrabold text-xs shrink-0">
+                      8+ Yrs
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Founder Story & Credentials */}
+              <div className="lg:col-span-7 space-y-4 pt-4 lg:pt-0">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-orange-300 text-xs font-bold uppercase tracking-wider">
+                  <span>FOUNDER &amp; MANAGING DIRECTOR</span>
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
+                  Sidarth Kumar
+                </h2>
+
+                <p className="text-sm sm:text-base text-blue-100 font-medium">
+                  Founder &amp; Lead Consultant at PFHelpline
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  With over 8 years of dedicated experience in Provident Fund compliances, EPFO SOP procedures, and employee grievance redressal, Sidarth Kumar established PFHelpline to bring transparency, process speed, and structured support to Indian employees.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  His vision is to ensure that no salaried employee or pensioner has to struggle with bureaucratic delays, incorrect KYC rejections, or complicated EPFO documentation. Every consultation under his guidance follows strict procedural ethics, accuracy, and dedicated personal support.
+                </p>
+
+                {/* 3 Key Stats / Pillars */}
+                <div className="grid grid-cols-3 gap-3 pt-2">
+                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+                    <p className="text-lg sm:text-xl font-extrabold text-[#F56E0F]">2,500+</p>
+                    <p className="text-[10px] sm:text-xs text-slate-300 mt-0.5">PF Cases Guided</p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+                    <p className="text-lg sm:text-xl font-extrabold text-emerald-400">100%</p>
+                    <p className="text-[10px] sm:text-xs text-slate-300 mt-0.5">SOP Adherence</p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+                    <p className="text-lg sm:text-xl font-extrabold text-blue-400">4.9/5</p>
+                    <p className="text-[10px] sm:text-xs text-slate-300 mt-0.5">Client Rating</p>
+                  </div>
+                </div>
+
+                {/* Direct Action to Consult with Sidarth */}
+                <div className="flex flex-wrap items-center gap-3 pt-3">
+                  <a
+                    href={getWhatsAppUrl({ service: 'Consultation with Founder Sidarth Kumar' })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs sm:text-sm font-bold shadow-md transition-all"
+                  >
+                    <WhatsAppIcon className="w-4 h-4" />
+                    <span>Connect with Sidarth on WhatsApp</span>
+                  </a>
+
+                  <a
+                    href={`tel:${LEAD_CONFIG.phoneDial}`}
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs sm:text-sm font-bold transition-all"
+                  >
+                    <PhoneCall className="w-4 h-4" />
+                    <span>Call Helpline: {LEAD_CONFIG.phoneDisplay}</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldAlert } from 'lucide-react';
+import { ShieldAlert, Instagram, Facebook, PhoneCall } from 'lucide-react';
 import logoDarkImg from '../assets/pfhelpline-logo-dark.png';
+import { LEAD_CONFIG, getWhatsAppUrl } from '../data/siteData';
+import { WhatsAppIcon } from './FloatingLeadBar';
 
 export default function Footer() {
   return (
     <footer className="bg-[#061833] text-slate-300 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-slate-800">
-          {/* Brand Info */}
-          <div className="md:col-span-5 space-y-3">
+          {/* Brand Info & Social Connect */}
+          <div className="md:col-span-5 space-y-3.5">
             <a href="/#home" className="inline-block">
               <img
                 src={logoDarkImg}
@@ -19,8 +21,54 @@ export default function Footer() {
             </a>
             <p className="text-white font-bold text-base">PFHelpline</p>
             <p className="text-slate-300 text-xs sm:text-sm">
-              Professional Assistance for Provident Fund Requirements.
+              Professional Assistance for Provident Fund &amp; Pension Requirements.
             </p>
+
+            {/* Social Media Links: Instagram, Facebook & WhatsApp */}
+            <div className="pt-2 space-y-2">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-orange-400">
+                Connect With Us
+              </p>
+              <div className="flex items-center gap-2.5">
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-9 h-9 rounded-xl bg-white/5 hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] border border-white/10 hover:border-transparent text-slate-300 hover:text-white flex items-center justify-center transition-all shadow-xs"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
+
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-9 h-9 rounded-xl bg-white/5 hover:bg-[#1877F2] border border-white/10 hover:border-transparent text-slate-300 hover:text-white flex items-center justify-center transition-all shadow-xs"
+                >
+                  <Facebook className="w-4 h-4" />
+                </a>
+
+                <a
+                  href={getWhatsAppUrl({ service: 'Footer Social Connect' })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  className="w-9 h-9 rounded-xl bg-white/5 hover:bg-[#25D366] border border-white/10 hover:border-transparent text-slate-300 hover:text-white flex items-center justify-center transition-all shadow-xs"
+                >
+                  <WhatsAppIcon className="w-4 h-4" />
+                </a>
+
+                <a
+                  href={`tel:${LEAD_CONFIG.phoneDial}`}
+                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/5 hover:bg-orange-500/20 border border-white/10 hover:border-orange-500/40 text-xs font-bold text-slate-200 hover:text-orange-300 transition-all ml-1"
+                >
+                  <PhoneCall className="w-3.5 h-3.5 text-orange-400" />
+                  <span>{LEAD_CONFIG.phoneDisplay}</span>
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}
