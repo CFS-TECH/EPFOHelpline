@@ -4,11 +4,13 @@ import {
   Mail,
   Clock,
   CheckCircle2,
+  ShieldCheck,
   Send,
   ChevronDown
 } from 'lucide-react';
 import { SERVICE_CATEGORIES, FAQ_DATA, PROCESS_STEPS, LEAD_CONFIG, getWhatsAppUrl, openWhatsApp } from '../data/siteData';
 import { WhatsAppIcon } from '../components/FloatingLeadBar';
+import PageHero from '../components/PageHero';
 import logoImg from '../assets/pfhelpline-logo.png';
 
 export default function Contact() {
@@ -43,40 +45,18 @@ export default function Contact() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="brand-gradient text-white py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-5">
-            <span className="inline-block px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-orange-300 text-xs font-bold uppercase tracking-widest">
-              07. CONNECT WITH OUR TEAM
-            </span>
-            <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight">
-              Have a PF Requirement That Needs Attention?
-            </h1>
-            <p className="text-base sm:text-lg text-blue-100 leading-relaxed">
-              Connect with our team via WhatsApp or Direct Call to understand the appropriate process, documentation and available assistance for your requirement.
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 pt-1">
-              <a
-                href={getWhatsAppUrl({ service: 'Contact Page Direct Chat' })}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] shadow-lg transition-all w-full sm:w-auto"
-              >
-                <WhatsAppIcon className="w-4 h-4" />
-                <span>Chat on WhatsApp Now</span>
-              </a>
-              <a
-                href={`tel:${LEAD_CONFIG.phoneDial}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white orange-gradient shadow-lg transition-all w-full sm:w-auto"
-              >
-                <PhoneCall className="w-4 h-4" />
-                <span>Call Now: {LEAD_CONFIG.phoneDisplay}</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Unified Standard Page Hero */}
+      <PageHero
+        badge="07. CONNECT WITH OUR TEAM"
+        title="Have a PF Requirement That"
+        highlight="Needs Attention?"
+        description="Connect directly with our team via WhatsApp or Direct Call to understand the appropriate process, documentation, and get immediate step-by-step guidance."
+        trustPoints={[
+          { icon: CheckCircle2, text: 'Instant WhatsApp Response', color: 'text-emerald-400' },
+          { icon: ShieldCheck, text: 'Direct Advisor Support', color: 'text-orange-400' },
+          { icon: Clock, text: 'Mon-Sat: 9:30 AM - 6:30 PM', color: 'text-blue-200' }
+        ]}
+      />
 
       {/* Main Contact & Requirement Form Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">

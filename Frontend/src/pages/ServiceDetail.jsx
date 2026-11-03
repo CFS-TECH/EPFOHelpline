@@ -15,6 +15,7 @@ import {
 import { ALL_SERVICES_LIST, SERVICE_CATEGORIES, LEAD_CONFIG, getWhatsAppUrl, openWhatsApp } from '../data/siteData';
 import ServiceIcon from '../components/ServiceIcon';
 import { WhatsAppIcon } from '../components/FloatingLeadBar';
+import PageHero from '../components/PageHero';
 import iconLogo from '../assets/icon-logo.png';
 
 export default function ServiceDetail() {
@@ -89,72 +90,17 @@ export default function ServiceDetail() {
         </div>
       </div>
 
-      {/* Hero Banner with Title & Quick Connect */}
-      <section className="brand-gradient text-white py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-4">
-              <div className="flex items-center gap-2.5">
-                <span className="px-3 py-1 rounded-full bg-white/10 text-orange-300 text-xs font-bold uppercase tracking-wider">
-                  {service.categoryTitle}
-                </span>
-                <span className="text-white/40">&bull;</span>
-                <span className="text-xs text-blue-200 font-semibold">
-                  {service.group}
-                </span>
-              </div>
-
-              <div className="flex items-start gap-4 pt-1">
-                <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0 text-orange-300">
-                  <ServiceIcon name={service.iconName} className="w-6 h-6" />
-                </div>
-                <div>
-                  <h1 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
-                    {service.title}
-                  </h1>
-                  <p className="text-sm sm:text-base text-blue-100 mt-2 max-w-2xl leading-relaxed">
-                    {service.desc}
-                  </p>
-                </div>
-              </div>
-
-              {/* Direct Call & Enquiry CTA */}
-              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-3">
-                <a
-                  href={`tel:${LEAD_CONFIG.phoneDial}`}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white orange-gradient shadow-md hover:opacity-95 transition-all w-full sm:w-auto"
-                >
-                  <PhoneCall className="w-4 h-4 shrink-0" />
-                  <span>Call Helpline: {LEAD_CONFIG.phoneDisplay}</span>
-                </a>
-
-                <a
-                  href="#service-enquiry-form"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all w-full sm:w-auto"
-                >
-                  <span>Request Callback &rarr;</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Quick Trust Card */}
-            <div className="lg:col-span-4 bg-white/10 border border-white/15 rounded-2xl p-5 text-white backdrop-blur-xs space-y-3">
-              <div className="flex items-center gap-3">
-                <img src={iconLogo} alt="PFHelpline Icon" className="w-10 h-10 object-contain" />
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-orange-300">
-                    PFHelpline Process
-                  </p>
-                  <p className="text-sm font-extrabold">Professional &bull; Transparent</p>
-                </div>
-              </div>
-              <p className="text-xs text-blue-100 leading-relaxed">
-                Step-by-step guidance tailored to your exact UAN profile, passbook records, and statutory procedure.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Unified Standard Page Hero */}
+      <PageHero
+        badge={`${service.categoryTitle} • ${service.group}`}
+        title={service.title}
+        description={service.desc}
+        trustPoints={[
+          { icon: CheckCircle2, text: 'Verified Checklist', color: 'text-emerald-400' },
+          { icon: ShieldCheck, text: 'EPFO SOP Compliant', color: 'text-orange-400' },
+          { icon: WhatsAppIcon, text: 'Direct WhatsApp Support', color: 'text-emerald-400' }
+        ]}
+      />
 
       {/* Main Details: 8 Cols Scope & Docs + 4 Cols Direct Consultation Form */}
       <section className="py-12 lg:py-16">

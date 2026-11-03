@@ -23,6 +23,7 @@ import {
 } from '../data/siteData';
 import ServiceIcon from '../components/ServiceIcon';
 import { WhatsAppIcon } from '../components/FloatingLeadBar';
+import PageHero from '../components/PageHero';
 
 export default function Services({ onOpenEnquiry }) {
   const [searchParams] = useSearchParams();
@@ -97,96 +98,68 @@ export default function Services({ onOpenEnquiry }) {
       {/* =====================================================================
           01. COMPACT, SLEEK & PROFESSIONAL SERVICES HEADER
       ====================================================================== */}
-      <section className="bg-gradient-to-r from-[#021b3d] via-[#003B87] to-[#012555] text-white py-7 sm:py-9 border-b border-blue-900/40 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
-            {/* Left Info Column */}
-            <div className="space-y-2.5 max-w-2xl">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-orange-300 text-[11px] font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
-                <span>Provident Fund &amp; Pension Services Directory</span>
-              </div>
-
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
-                PF &amp; Pension Assistance Services
-              </h1>
-
-              <p className="text-xs sm:text-sm text-blue-100 leading-relaxed max-w-xl">
-                Browse complete procedural guidance, document requirements, and connect directly on WhatsApp or Call for expert assistance.
-              </p>
-
-              {/* Inline Trust Badges */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pt-1 text-xs text-blue-200">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  30 Specialized Services
-                </span>
-                <span className="text-white/20">•</span>
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-orange-400 shrink-0" />
-                  EPFO SOP Guidance
-                </span>
-                <span className="text-white/20">•</span>
-                <span className="flex items-center gap-1.5">
-                  <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  Instant WhatsApp Support
-                </span>
-              </div>
+      <PageHero
+        badge="Provident Fund & Pension Services Directory"
+        title="PF &amp; Pension Assistance"
+        highlight="Services"
+        description="Browse complete procedural guidance, document requirements, and connect directly on WhatsApp or Call for expert assistance."
+        trustPoints={[
+          { icon: CheckCircle2, text: '30 Specialized Services', color: 'text-emerald-400' },
+          { icon: ShieldCheck, text: 'EPFO SOP Guidance', color: 'text-orange-400' },
+          { icon: WhatsAppIcon, text: 'Instant WhatsApp Support', color: 'text-emerald-400' }
+        ]}
+        rightContent={
+          <div className="bg-white/10 backdrop-blur-md border border-white/15 p-3.5 sm:p-4 rounded-2xl shadow-md space-y-2.5">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-orange-200">
+                Quick Service Search
+              </span>
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="text-[11px] text-blue-200 hover:text-white underline cursor-pointer"
+                >
+                  Reset
+                </button>
+              )}
             </div>
 
-            {/* Right Search & Quick Filter Box */}
-            <div className="lg:w-96 shrink-0 bg-white/10 backdrop-blur-md border border-white/15 p-3.5 sm:p-4 rounded-2xl shadow-md space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-orange-200">
-                  Quick Service Search
-                </span>
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery('')}
-                    className="text-[11px] text-blue-200 hover:text-white underline cursor-pointer"
-                  >
-                    Reset
-                  </button>
-                )}
-              </div>
+            <div className="relative bg-white rounded-xl shadow-xs flex items-center">
+              <Search className="w-4 h-4 text-slate-400 ml-3 shrink-0" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search withdrawal, KYC, transfer..."
+                className="w-full pl-2.5 pr-8 py-2 text-xs sm:text-sm text-slate-900 font-semibold outline-none rounded-xl placeholder:text-slate-400"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="p-1.5 text-slate-400 hover:text-slate-600 mr-1 cursor-pointer"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
 
-              <div className="relative bg-white rounded-xl shadow-xs flex items-center">
-                <Search className="w-4 h-4 text-slate-400 ml-3 shrink-0" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search withdrawal, KYC, transfer..."
-                  className="w-full pl-2.5 pr-8 py-2 text-xs sm:text-sm text-slate-900 font-semibold outline-none rounded-xl placeholder:text-slate-400"
-                />
-                {searchQuery && (
-                  <button
-                    type="button"
-                    onClick={() => setSearchQuery('')}
-                    className="p-1.5 text-slate-400 hover:text-slate-600 mr-1 cursor-pointer"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                )}
-              </div>
-
-              {/* Quick Filter Tags */}
-              <div className="flex flex-wrap gap-1.5 pt-0.5">
-                {['Withdrawal', 'KYC', 'Transfer', 'Name Error', 'Pension'].map((tag) => (
-                  <button
-                    key={tag}
-                    type="button"
-                    onClick={() => setSearchQuery(tag === 'Name Error' ? 'Name' : tag)}
-                    className="px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/25 text-[11px] font-semibold text-blue-100 hover:text-white transition-colors cursor-pointer"
-                  >
-                    {tag}
-                  </button>
-                ))}
-              </div>
+            {/* Quick Filter Tags */}
+            <div className="flex flex-wrap gap-1.5 pt-0.5">
+              {['Withdrawal', 'KYC', 'Transfer', 'Name Error', 'Pension'].map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => setSearchQuery(tag === 'Name Error' ? 'Name' : tag)}
+                  className="px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/25 text-[11px] font-semibold text-blue-100 hover:text-white transition-colors cursor-pointer"
+                >
+                  {tag}
+                </button>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        }
+      />
 
       {/* =====================================================================
           02. CATEGORY TABS & MAIN CONTENT GRID

@@ -1,51 +1,30 @@
 import React from 'react';
 import {
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  ShieldCheck
 } from 'lucide-react';
 import { WHY_PFHELPLINE_DATA, PROCESS_STEPS, PHOTOS } from '../data/siteData';
 import ServiceIcon from '../components/ServiceIcon';
 import Reveal from '../components/Reveal';
+import PageHero from '../components/PageHero';
+import { WhatsAppIcon } from '../components/FloatingLeadBar';
 
 export default function About({ onOpenEnquiry }) {
   return (
     <div>
-      {/* Page Hero with Photo Collage */}
-      <section className="brand-gradient bg-hero-grid text-white py-16 lg:py-22 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7 space-y-5">
-              <span className="inline-block px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-orange-300 text-xs font-bold uppercase tracking-widest">
-                ABOUT PFHELPLINE
-              </span>
-              <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight">
-                A More Structured Approach to Provident Fund Assistance.
-              </h1>
-              <p className="text-base sm:text-lg text-blue-100 leading-relaxed">
-                Managing Provident Fund requirements involves multiple procedures, documentation and verification steps. PFHelpline is focused on making these processes easier to navigate through organised assistance and professional customer support.
-              </p>
-            </div>
-            <div className="lg:col-span-5">
-              <div className="rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl h-64 sm:h-72 relative">
-                <img
-                  src={PHOTOS.aboutPrimary}
-                  alt="PFHelpline Advisory Team"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03152E]/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-5 right-5 text-white">
-                  <p className="text-xs font-bold uppercase tracking-wider text-orange-300">
-                    Our Approach
-                  </p>
-                  <p className="text-sm font-bold">
-                    Professional &bull; Transparent &bull; Process-Driven
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Unified Standard Page Hero */}
+      <PageHero
+        badge="ABOUT PFHELPLINE"
+        title="A More Structured Approach to"
+        highlight="PF Assistance"
+        description="Managing Provident Fund requirements involves multiple procedures, documentation and verification steps. PFHelpline is focused on making these processes easier through organised assistance and professional customer support."
+        trustPoints={[
+          { icon: CheckCircle2, text: 'Transparent & Process-Driven', color: 'text-emerald-400' },
+          { icon: ShieldCheck, text: 'Statutory SOP Compliant', color: 'text-orange-400' },
+          { icon: WhatsAppIcon, text: '1-on-1 Dedicated Support', color: 'text-emerald-400' }
+        ]}
+      />
 
       {/* Mission & Approach Section */}
       <section className="py-16 lg:py-22 bg-white">

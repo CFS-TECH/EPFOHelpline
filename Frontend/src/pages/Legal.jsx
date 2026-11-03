@@ -1,22 +1,30 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ShieldAlert, FileText, Lock } from 'lucide-react';
+import { ShieldAlert, FileText, Lock, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import PageHero from '../components/PageHero';
+import { WhatsAppIcon } from '../components/FloatingLeadBar';
 
 export default function Legal() {
   const [searchParams, setSearchParams] = useSearchParams();
   const activeTab = searchParams.get('tab') || 'disclaimer';
 
   return (
-    <div className="py-16 lg:py-22 bg-slate-50 min-h-[70vh]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-[#F56E0F]">
-            LEGAL &amp; STATUTORY INFORMATION
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">
-            Legal Policies &amp; Independent Disclaimer
-          </h1>
-        </div>
+    <div>
+      {/* Unified Standard Page Hero */}
+      <PageHero
+        badge="LEGAL & STATUTORY POLICIES"
+        title="Legal Policies & Independent"
+        highlight="Disclaimer"
+        description="Review our statutory notice, terms of service, privacy commitment, and independent third-party advisory disclaimer."
+        trustPoints={[
+          { icon: ShieldCheck, text: 'Independent Advisory Portal', color: 'text-orange-400' },
+          { icon: CheckCircle2, text: 'Transparent Terms', color: 'text-emerald-400' },
+          { icon: WhatsAppIcon, text: 'Direct Support Available', color: 'text-emerald-400' }
+        ]}
+      />
+
+      <div className="py-10 sm:py-14 bg-slate-50 min-h-[60vh]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
 
         {/* Tabs */}
         <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-4">
@@ -85,5 +93,6 @@ export default function Legal() {
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 }

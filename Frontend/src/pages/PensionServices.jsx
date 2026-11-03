@@ -11,6 +11,7 @@ import {
 import { SERVICE_CATEGORIES, LEAD_CONFIG, getWhatsAppUrl, openWhatsApp } from '../data/siteData';
 import ServiceIcon from '../components/ServiceIcon';
 import { WhatsAppIcon } from '../components/FloatingLeadBar';
+import PageHero from '../components/PageHero';
 
 export default function PensionServices({ onOpenEnquiry }) {
   const pensionCategory = SERVICE_CATEGORIES[1]; // 7 Pension & Related Services
@@ -41,161 +42,21 @@ export default function PensionServices({ onOpenEnquiry }) {
 
   return (
     <div>
-      {/* Hero with Visible Contact Form */}
-      <section className="brand-gradient bg-hero-grid text-white py-10 lg:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <span className="inline-block px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-orange-300 text-xs font-bold uppercase tracking-widest">
-                02. PENSION, DEATH CLAIMS &amp; ADDITIONAL SERVICES
-              </span>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-                EPS Pension, Family Pension, Death Claims &amp; Portal Support
-              </h1>
-              <p className="text-sm sm:text-base text-blue-100 leading-relaxed max-w-xl">
-                Dedicated guidance for EPS Pension, Higher Pension, Family Pension, EDLI / Death Claim Settlement, EPFO Portal issues, and 1-on-1 PF Consultation.
-              </p>
-
-              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
-                <a
-                  href={`tel:${LEAD_CONFIG.phoneDial}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white orange-gradient shadow-lg w-full sm:w-auto"
-                >
-                  <PhoneCall className="w-4 h-4 shrink-0" />
-                  <span>Call: {LEAD_CONFIG.phoneDisplay}</span>
-                </a>
-                <a
-                  href="#pension-services-list"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-colors w-full sm:w-auto"
-                >
-                  <span>Explore Solutions &darr;</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Right Hero Contact Form */}
-            <div className="lg:col-span-5">
-              <div className="bg-white text-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-[#F56E0F] overflow-hidden">
-                <div className="orange-gradient px-6 py-3.5 text-white">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-orange-100 block">
-                    Pension &amp; Death Claim Help Desk
-                  </span>
-                  <h2 className="text-lg font-extrabold">
-                    Get Guided Pension / Claim Support
-                  </h2>
-                </div>
-
-                <div className="p-6">
-                  {submitted ? (
-                    <div className="py-5 text-center space-y-3">
-                      <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
-                      <h3 className="text-lg font-extrabold text-slate-900">
-                        Enquiry Sent to WhatsApp!
-                      </h3>
-                      <p className="text-xs text-slate-600">
-                        Thank you, <strong>{form.name}</strong>. Your enquiry for <strong>{form.service}</strong> has been opened in WhatsApp. Please tap <strong>Send</strong> in WhatsApp.
-                      </p>
-                      <button
-                        type="button"
-                        onClick={handleWhatsApp}
-                        className="w-full py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                      >
-                        <WhatsAppIcon className="w-4 h-4" />
-                        <span>Click If WhatsApp Didn't Open</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setSubmitted(false)}
-                        className="text-xs text-slate-500 underline cursor-pointer block mx-auto pt-1"
-                      >
-                        Submit another enquiry
-                      </button>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-3.5">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Your Full Name *
-                        </label>
-                        <div className="relative">
-                          <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                          <input
-                            type="text"
-                            required
-                            placeholder="Enter your name"
-                            value={form.name}
-                            onChange={(e) => setForm({ ...form, name: e.target.value })}
-                            className="w-full pl-9 pr-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Mobile / WhatsApp Number *
-                        </label>
-                        <div className="relative">
-                          <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                          <input
-                            type="tel"
-                            required
-                            placeholder="Enter 10-digit mobile number"
-                            value={form.phone}
-                            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                            className="w-full pl-9 pr-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Select Pension or Additional Service *
-                        </label>
-                        <div className="relative">
-                          <FileText className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                          <select
-                            value={form.service}
-                            onChange={(e) => setForm({ ...form, service: e.target.value })}
-                            className="w-full pl-9 pr-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-[#003B87] outline-none bg-white font-semibold text-[#003B87]"
-                          >
-                            <optgroup label={pensionCategory.title}>
-                              {pensionCategory.services.map((s) => (
-                                <option key={s.id} value={s.title}>
-                                  {s.title}
-                                </option>
-                              ))}
-                            </optgroup>
-                            <optgroup label={additionalCategory.title}>
-                              {additionalCategory.services.map((s) => (
-                                <option key={s.id} value={s.title}>
-                                  {s.title}
-                                </option>
-                              ))}
-                            </optgroup>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div className="pt-2">
-                        <button
-                          type="submit"
-                          className="w-full py-3.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs sm:text-sm font-extrabold flex items-center justify-center gap-1.5 cursor-pointer shadow-md transition-colors"
-                        >
-                          <WhatsAppIcon className="w-4 h-4" />
-                          <span>Send Enquiry via WhatsApp</span>
-                        </button>
-                      </div>
-                    </form>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Unified Standard Page Hero */}
+      <PageHero
+        badge="02. PENSION, DEATH CLAIMS &amp; ADDITIONAL SERVICES"
+        title="EPS Pension, Death Claims &amp;"
+        highlight="Portal Support"
+        description="Dedicated guidance for EPS Pension, Higher Pension, Family Pension, EDLI / Death Claim Settlement, EPFO Portal issues, and 1-on-1 PF Consultation."
+        trustPoints={[
+          { icon: CheckCircle2, text: '7 Pension Solutions', color: 'text-emerald-400' },
+          { icon: ShieldCheck, text: '5 Additional Services', color: 'text-orange-400' },
+          { icon: WhatsAppIcon, text: 'Instant WhatsApp Help', color: 'text-emerald-400' }
+        ]}
+      />
 
       {/* Section 2: Pension & Related Services (7) + Section 3: Additional PF Services (5) */}
-      <section className="py-14 lg:py-18 bg-slate-50 bg-grid-pattern">
+      <section id="pension-services-list" className="py-10 sm:py-12 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
           {/* 2. Pension & Related Services */}
           <div className="space-y-6">
