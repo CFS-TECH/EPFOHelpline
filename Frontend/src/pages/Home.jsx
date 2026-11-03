@@ -89,55 +89,61 @@ export default function Home({ onOpenEnquiry }) {
       {/* =====================================================================
           01. HERO SECTION — Clean, High-Trust Corporate Hero with Advisor Photo
       ====================================================================== */}
-      <section className="bg-gradient-to-r from-[#021838] via-[#003B87] to-[#012555] text-white py-10 sm:py-14 lg:py-16 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#021838] via-[#003B87] to-[#012555] text-white py-6 sm:py-12 lg:py-16 relative overflow-hidden">
         {/* Subtle Ambient Glow & Tech Grid */}
         <div className="absolute inset-0 bg-hero-grid opacity-15 pointer-events-none" />
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-12 items-center">
             {/* Left Column: Hero Text & Direct Buttons (7 cols) */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15">
-                <span className="w-2 h-2 rounded-full bg-[#F56E0F]" />
-                <span className="text-xs font-bold tracking-wider uppercase text-orange-300">
+            <div className="lg:col-span-7 space-y-2.5 sm:space-y-4">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 border border-white/15">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F56E0F]" />
+                <span className="text-[10px] sm:text-xs font-bold tracking-wider uppercase text-orange-300">
                   PROVIDENT FUND &amp; PENSION ASSISTANCE
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
                 Clarity in Every PF Process.{' '}
                 <span className="text-[#F56E0F]">Confidence in Every Step.</span>
               </h1>
 
-              <p className="text-sm sm:text-base text-blue-100 leading-relaxed max-w-xl">
-                Professional assistance for Provident Fund services, employee documentation, PF KYC, profile corrections, and pension requirements. Simplified, process-driven support.
+              {/* Crisp 1-liner on mobile, detailed on tablet/desktop */}
+              <p className="text-xs sm:text-base text-blue-100 leading-relaxed max-w-xl">
+                <span className="sm:hidden">
+                  Instant guidance for PF withdrawal, KYC updates &amp; pension claims.
+                </span>
+                <span className="hidden sm:inline">
+                  Professional assistance for Provident Fund services, employee documentation, PF KYC, profile corrections, and pension requirements. Simplified, process-driven support.
+                </span>
               </p>
 
-              {/* Direct Actions: Call Helpline & Chat on WhatsApp */}
-              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
+              {/* Direct Actions: 2 balanced side-by-side buttons on mobile, spacious on desktop */}
+              <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2 sm:gap-3 pt-1">
                 <a
                   href={`tel:${LEAD_CONFIG.phoneDial}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white orange-gradient shadow-md hover:opacity-95 transition-all w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2.5 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white orange-gradient shadow-md hover:opacity-95 transition-all text-center"
                 >
-                  <PhoneCall className="w-4 h-4 shrink-0" />
-                  <span>Call Helpline: {LEAD_CONFIG.phoneDisplay}</span>
+                  <PhoneCall className="w-3.5 h-3.5 shrink-0" />
+                  <span className="truncate">Call Helpline</span>
                 </a>
 
                 <a
                   href={getWhatsAppUrl({ service: 'Home Hero Direct Chat' })}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] shadow-md transition-all w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2.5 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebe57] shadow-md transition-all text-center"
                 >
-                  <WhatsAppIcon className="w-4 h-4 shrink-0" />
-                  <span>Chat on WhatsApp</span>
+                  <WhatsAppIcon className="w-3.5 h-3.5 shrink-0" />
+                  <span className="truncate">WhatsApp</span>
                 </a>
               </div>
 
-              {/* Clean Trust Points */}
-              <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-blue-200">
+              {/* Clean Trust Points: Hidden on mobile to avoid vertical clutter */}
+              <div className="hidden sm:flex flex-wrap items-center gap-4 pt-2 text-xs text-blue-200">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>100% EPFO SOP Guidance</span>
@@ -155,9 +161,9 @@ export default function Home({ onOpenEnquiry }) {
               </div>
             </div>
 
-            {/* Right Column: Natural, Spacious Advisor Photo Showcase (5 cols) */}
+            {/* Right Column: Clean, Compact Photo Card (5 cols) */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 h-80 sm:h-96 lg:h-[400px]">
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-white/20 h-44 sm:h-72 lg:h-[390px]">
                 <img
                   src={PHOTOS.heroMain}
                   alt="PFHelpline Senior Advisory Consultant"
@@ -166,20 +172,20 @@ export default function Home({ onOpenEnquiry }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#02152e]/90 via-[#02152e]/25 to-transparent pointer-events-none" />
                 
                 {/* Floating SOP Badge */}
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 border border-slate-100">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span className="text-xs font-bold text-slate-800">Verified SOP Guidance</span>
+                <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full shadow-md flex items-center gap-1.5 border border-slate-100">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span className="text-[10px] sm:text-xs font-bold text-slate-800">Verified SOP Guidance</span>
                 </div>
 
                 {/* Bottom Caption */}
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#F56E0F] text-white text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                <div className="absolute bottom-2.5 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 text-white">
+                  <span className="inline-block px-2 py-0.5 rounded-full bg-[#F56E0F] text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-wider mb-1">
                     Senior Advisory Desk
                   </span>
-                  <p className="text-base sm:text-lg font-extrabold leading-snug">
+                  <p className="text-xs sm:text-lg font-extrabold leading-snug">
                     Dedicated Support for All PF Requirements
                   </p>
-                  <p className="text-xs text-blue-200 mt-0.5">
+                  <p className="hidden sm:block text-xs text-blue-200 mt-0.5">
                     Professional • Transparent • Process-Driven
                   </p>
                 </div>
